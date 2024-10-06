@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PushController : MonoBehaviour
+public class PushController : PlayerAction
 {
     [Range(1, 20)]
     [SerializeField] private float pushPower;
@@ -35,14 +35,6 @@ public class PushController : MonoBehaviour
         {
             CheckDistance();
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                defaultDistance = distance;
-
-                side = movement.CheckSide(pushingObject.transform);
-                SetPush();
-            }
-
             if (isPushing)
             {
                   RotateToObject();
@@ -50,6 +42,16 @@ public class PushController : MonoBehaviour
 
             
         }
+
+    }
+
+    public override void DoAction()
+    {
+
+        defaultDistance = distance;
+
+        side = movement.CheckSide(pushingObject.transform);
+        SetPush();
 
     }
 
@@ -113,6 +115,8 @@ public class PushController : MonoBehaviour
         {
             pushingObject = other.gameObject;
             weightObject = pushingObject.GetComponent<Rigidbody>().mass;
+
+            GetComponent<ActionsController>().AddAction(this);
         }
     }
 
@@ -122,7 +126,7 @@ public class PushController : MonoBehaviour
         if (other.gameObject.tag == "Push")
         {
             if (isPushing || other.gameObject != pushingObject) return;
-            //SetPush();
+            GetComponent<ActionsController>().RemoveAction(this);
         }
     }
 
@@ -149,6 +153,7 @@ public class PushController : MonoBehaviour
         {
             SetPush();
             pushingObject = null;
+            GetComponent<ActionsController>().RemoveAction(this);
         }
     }
 

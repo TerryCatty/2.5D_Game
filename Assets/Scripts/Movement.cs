@@ -83,7 +83,6 @@ public class Movement : MonoBehaviour
         moveValues.x = moveHorizontal;
         moveValues.z = moveVertical;
 
-        moveValues = moveValues.normalized;
 
         if (isRotatingByMovement)
         {
