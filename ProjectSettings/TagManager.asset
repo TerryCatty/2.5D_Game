@@ -9,18 +9,14 @@ TagManager:
   - Animal
   - Water
   - Stair
-  - Ground
-  - Push
-  - Ledge
-  - Slope
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ledge
+  - 
   - Water
   - UI
-  - Stairs
+  - 
   - 
   - PostProcessing
   - Snapshot Zone
