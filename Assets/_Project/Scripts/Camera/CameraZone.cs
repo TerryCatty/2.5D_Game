@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CameraZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public CameraParams parameters;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Movement>().SetNewCameraParameters(parameters);
+        }
     }
 }

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 51bba05802db22e4cae485ab0388ed51
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 214767
+  packageName: Musemi - Stylized Springtime VFX
+  packageVersion: 1.0
+  assetPath: Assets/OccaSoftware/Musemi - Spring Ambient VFX/DemoResources/Shaders/GrassShader.shadergraph
+  uploadId: 484149

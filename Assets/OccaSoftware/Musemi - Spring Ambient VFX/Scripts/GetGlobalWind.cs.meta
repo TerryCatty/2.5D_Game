@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1b3e3a92f8e191748a98b4478025fbe1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 214767
+  packageName: Musemi - Stylized Springtime VFX
+  packageVersion: 1.0
+  assetPath: Assets/OccaSoftware/Musemi - Spring Ambient VFX/Scripts/GetGlobalWind.cs
+  uploadId: 484149

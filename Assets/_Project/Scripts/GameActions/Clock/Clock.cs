@@ -22,6 +22,8 @@ public class Clock : MonoBehaviour
     private float currentTime;
     public float dayDuration = 30f;
 
+    public Vector3 rotatePoint;
+
 
     private void Start()
     {
@@ -38,8 +40,8 @@ public class Clock : MonoBehaviour
 
     private void SetRotateByTime()
     {
-        hourHand.localRotation = Quaternion.Euler(0, GetHour() * hoursToDegrees, 0);
-        minuteHand.localRotation = Quaternion.Euler(0, GetMinutes() * minutesToDegrees, 0);
+        hourHand.localRotation = Quaternion.Euler(rotatePoint * (GetHour() * hoursToDegrees));
+        minuteHand.localRotation = Quaternion.Euler(rotatePoint * (GetMinutes() * minutesToDegrees));
     }
 
     public void ChangeTime(float time = 0)

@@ -38,6 +38,8 @@ public class PushController : PlayerAction
             if (isPushing)
             {
                   RotateToObject();
+
+                pushingObject.GetComponent<Rigidbody>().velocity = movement.moveValues;
             }
 
             
@@ -126,6 +128,9 @@ public class PushController : PlayerAction
         if (other.gameObject.tag == "Push")
         {
             if (isPushing || other.gameObject != pushingObject) return;
+
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
             GetComponent<ActionsController>().RemoveAction(this);
         }
     }
@@ -137,7 +142,9 @@ public class PushController : PlayerAction
         movement.weight = isPushing ? weightObject : weightPlayer;
         movement.isRotatingByMovement = !isPushing;
 
-        pushingObject.transform.SetParent(isPushing ? transform : null, true);
+        if(isPushing) movement.moveValues = Vector3.zero;
+
+       // pushingObject.transform.SetParent(isPushing ? transform : null, true);
 
     }
 

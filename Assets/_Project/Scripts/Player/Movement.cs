@@ -7,15 +7,19 @@ using static PushController;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
+    private Camera cam;
 
     [Header("Move")]
 
-    [SerializeField] private float Speed = 10f;
-    public float speed => Speed;
+    public MovementParams movementParameters;
+
+
+    private float Speed => movementParameters.speed;
+    private Vector3 moveValuesOffset => movementParameters.moveValuesOffset;
 
     private CharacterController characterController;
 
-    /*[HideInInspector] */public Vector3 playerValues = new Vector3();
+   public Vector3 playerValues = new Vector3();
     private Rigidbody rb;
     public float moveHorizontal, moveVertical;
     [HideInInspector] public Vector3 moveValues;
@@ -56,6 +60,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
     }
@@ -74,8 +79,9 @@ public class Movement : MonoBehaviour
     {
         if (sliding && isGround)
         {
-            playerValues.x += (1f - hitNormal.y) * hitNormal.x * (Speed - slideFriction);
-            playerValues.z += (1f - hitNormal.y) * hitNormal.z * (Speed - slideFriction);
+            playerValues.x += ((1f - hitNormal.y) * hitNormal.x * (Speed - slideFriction)) * moveValuesOffset.x;
+            playerValues.z += ((1f - hitNormal.y) * hitNormal.z * (Speed - slideFriction)) * moveValuesOffset.z;
+            if (UseGravity) playerValues.y = gravityForce * moveValuesOffset.y;
 
             characterController.Move(playerValues * Time.deltaTime);
 
@@ -86,8 +92,8 @@ public class Movement : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal") * Speed / weight;
         moveVertical = Input.GetAxis("Vertical") * Speed / weight;
 
-        moveValues.x = moveHorizontal;
-        moveValues.z = moveVertical;
+        moveValues.x = moveHorizontal * moveValuesOffset.x;
+        moveValues.z = moveVertical * moveValuesOffset.z;
 
 
         if (isRotatingByMovement)
@@ -98,11 +104,11 @@ public class Movement : MonoBehaviour
         if (isSelfMoving == true)
         {
 
-            if (characterController.isGrounded)
+            //if (characterController.isGrounded)
                 playerValues = moveValues;
 
 
-            if(UseGravity) playerValues.y = gravityForce;
+            if(UseGravity) playerValues.y = gravityForce * moveValuesOffset.y;
 
         }
 
@@ -183,5 +189,15 @@ public class Movement : MonoBehaviour
 
     }
 
+
+    public void SetNewParameters(MovementParams parametres)
+    {
+        movementParameters = parametres;
+    }
+
+    public void SetNewCameraParameters(CameraParams parametres)
+    {
+        cam.GetComponent<CameraFollow>().CameraParams = parametres;
+    }
 
 }

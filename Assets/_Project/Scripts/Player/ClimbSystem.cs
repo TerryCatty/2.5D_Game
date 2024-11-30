@@ -11,6 +11,10 @@ public class ClimbSystem : MonoBehaviour
     private Transform stairs;
 
 
+    [SerializeField] private Transform stairsTracker;
+    [SerializeField] private float distanceTrackerStairs;
+    public LayerMask stairsMask;
+
     [Space]
 
     [Header("LedgeClimb")]
@@ -45,6 +49,7 @@ public class ClimbSystem : MonoBehaviour
     private void Update()
     {
         CheckLedge();
+        CheckStairs();
 
         if (isClimbLedge && movement.isGround == false)
         {
@@ -165,8 +170,8 @@ public class ClimbSystem : MonoBehaviour
 
         if (ledge == null)
         {
-            ResetClimb();
-            return;
+           ResetClimb();
+           return;
         }
 
         if (transform.position.y > ledge.position.y)
@@ -206,6 +211,21 @@ public class ClimbSystem : MonoBehaviour
         {
             isLedgeUp = false;
             ledge = null;
+        }
+    }
+
+    private void CheckStairs()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(stairsTracker.position, stairsTracker.TransformDirection(Vector3.forward), out hit, distanceTrackerStairs, stairsMask))
+        {
+            stairs = hit.collider.transform;
+            isStairsUp = true;
+        }
+        else
+        {
+            isStairsUp = false;
+            stairs = null;
         }
     }
 
@@ -321,7 +341,7 @@ public class ClimbSystem : MonoBehaviour
         isStairsUp = false;
         isMovingLedge = false;
 
-        movement.playerValues = Vector3.zero;
+        //movement.playerValues = Vector3.zero;
 
         isClimbLedge = false;
         canMove = true;
@@ -338,7 +358,7 @@ public class ClimbSystem : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Stair")
         {
@@ -356,7 +376,7 @@ public class ClimbSystem : MonoBehaviour
             stairs = null;
         }
     }
-
+*/
 
     public Side CheckSideByRotate(Transform target)
     {
