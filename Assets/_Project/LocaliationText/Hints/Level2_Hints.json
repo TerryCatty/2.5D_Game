@@ -1,0 +1,19 @@
+{
+"Level2_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Установи люстру на весы",
+  "English": "Install the chandelier on the scale"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Люстра имеет вес",
+  "English": "The chandelier has weight"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Установи правильный вес",
+  "English": "Set the correct weight"
+ }
+]
+}

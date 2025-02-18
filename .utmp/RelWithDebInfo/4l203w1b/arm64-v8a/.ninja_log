@@ -1,0 +1,19 @@
+# ninja log v5
+92	4137	7613382394268073	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e8db47107877df06
+21	4171	7613382394278080	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e8c31fcc66b8ac0d
+30	3147	7613382386764843	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	440073cb97feb091
+5034	5602	7613382411815831	D:/UnityProjects/2.5D Dracula - Mobile+/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4l203w1b/obj/arm64-v8a/libgame.so	b4140de517459bb4
+52	3126	7613382386693732	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	62487c6e19553fd
+99	3260	7613382388165715	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1abc6d168f49bb1f
+83	3109	7613382385981741	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	26bc5e128a93bfc2
+59	5013	7613382404644498	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5b7d4e53ac57e733
+39	5034	7613382404941378	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ff0de37cd614c04d
+89	4754	7613402451672960	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e8db47107877df06
+48	4756	7613402451662939	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	440073cb97feb091
+105	4786	7613402452846200	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	26bc5e128a93bfc2
+130	4983	7613402454801615	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1abc6d168f49bb1f
+56	5237	7613402456497747	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e8c31fcc66b8ac0d
+70	5279	7613402458310134	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	62487c6e19553fd
+118	5561	7613402461099766	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5b7d4e53ac57e733
+17	6276	7613402468217455	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ff0de37cd614c04d
+6277	7196	7613402477157596	D:/UnityProjects/2.5D Dracula - Mobile+/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4l203w1b/obj/arm64-v8a/libgame.so	b4140de517459bb4

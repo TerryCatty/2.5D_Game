@@ -1,0 +1,24 @@
+{
+"Menu":[
+ {
+  "Key": "Play",
+  "Russian": "Играть",
+  "English": "Play"
+ },
+ {
+  "Key": "NewGame",
+  "Russian": "Новая игра",
+  "English": "New Game"
+ },
+ {
+  "Key": "Menu",
+  "Russian": "Меню",
+  "English": "Menu"
+ },
+ {
+  "Key": "Back",
+  "Russian": "Назад",
+  "English": "Back"
+ }
+]
+}

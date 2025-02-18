@@ -1,0 +1,19 @@
+{
+"Level1_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Какой-то статуи не хватает",
+  "English": "There's a statue missing."
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Подвинь бочку",
+  "English": "Move the barrel"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Установи правильное время",
+  "English": "Set the correct time."
+ }
+]
+}

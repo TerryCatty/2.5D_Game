@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PushController : PlayerAction
@@ -22,6 +19,10 @@ public class PushController : PlayerAction
     private float distance;
     [SerializeField] private float offset;
 
+    private float speedPushing;
+
+    public Animator animator;
+
     private void Start()
     {
         movement = GetComponent<Movement>();
@@ -37,9 +38,12 @@ public class PushController : PlayerAction
 
             if (isPushing)
             {
-                  RotateToObject();
+                RotateToObject();
 
-                pushingObject.GetComponent<Rigidbody>().velocity = movement.moveValues;
+                pushingObject.GetComponent<Rigidbody>().linearVelocity = movement.moveValues;
+
+
+                animator.SetFloat("SpeedPushing", speedPushing);
             }
 
             
@@ -70,6 +74,11 @@ public class PushController : PlayerAction
 
                 if (movement.directionRotate.x == 0) movement.directionRotate.z = -1;
 
+
+                if (movement.moveValues.x == 0 && movement.moveValues.z == 0) speedPushing = 0;
+                else if (movement.moveValues.x < 0 || movement.moveValues.z > 0) speedPushing = -1;
+                else if (movement.moveValues.x > 0 || movement.moveValues.z < 0) speedPushing = 1;
+
                 break;
 
             case Side.down:
@@ -81,6 +90,11 @@ public class PushController : PlayerAction
 
 
                 if (movement.directionRotate.x == 0) movement.directionRotate.z = 1;
+
+
+                if (movement.moveValues.x == 0 && movement.moveValues.z == 0) speedPushing = 0;
+                else if (movement.moveValues.x > 0 || movement.moveValues.z < 0) speedPushing = -1;
+                else if (movement.moveValues.x < 0 || movement.moveValues.z > 0) speedPushing = 1;
 
                 break;
 
@@ -94,6 +108,14 @@ public class PushController : PlayerAction
 
                 if (movement.directionRotate.z == 0) movement.directionRotate.x = 1;
 
+
+
+
+                if (movement.moveValues.x == 0 && movement.moveValues.z == 0) speedPushing = 0;
+                else if (movement.moveValues.x < 0 || movement.moveValues.z > 0) speedPushing = -1;
+                else if (movement.moveValues.x > 0 || movement.moveValues.z < 0) speedPushing = 1;
+
+
                 break;
 
             case Side.right:
@@ -104,6 +126,12 @@ public class PushController : PlayerAction
                     : movement.moveValues.z;
 
                 if (movement.directionRotate.z == 0) movement.directionRotate.x = -1;
+
+
+
+                if (movement.moveValues.x == 0 && movement.moveValues.z == 0) speedPushing = 0;
+                else if (movement.moveValues.x > 0 || movement.moveValues.z < 0) speedPushing = -1;
+                else if (movement.moveValues.x < 0 || movement.moveValues.z > 0) speedPushing = 1;
 
                 break;
         }
@@ -129,7 +157,7 @@ public class PushController : PlayerAction
         {
             if (isPushing || other.gameObject != pushingObject) return;
 
-            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 
             GetComponent<ActionsController>().RemoveAction(this);
         }
@@ -143,8 +171,9 @@ public class PushController : PlayerAction
         movement.isRotatingByMovement = !isPushing;
 
         if(isPushing) movement.moveValues = Vector3.zero;
+        animator.SetBool("IsPushing", isPushing);
 
-       // pushingObject.transform.SetParent(isPushing ? transform : null, true);
+        // pushingObject.transform.SetParent(isPushing ? transform : null, true);
 
     }
 

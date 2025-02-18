@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Climb
   - Fly
@@ -21,12 +21,12 @@ TagManager:
   - Water
   - UI
   - Stair
-  - 
+  - Floor
   - PostProcessing
   - Snapshot Zone
   - Player
-  - 
-  - 
+  - Bullet
+  - FloorIgnore
   - 
   - 
   - 
@@ -50,3 +50,5 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default

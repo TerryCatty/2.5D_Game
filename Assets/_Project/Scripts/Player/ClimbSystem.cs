@@ -39,6 +39,14 @@ public class ClimbSystem : MonoBehaviour
     private bool canMove = true;
     private bool isClimbLedge = false;
 
+    [Space]
+    [Header("Sounds")]
+    [SerializeField] private SoundObject prefabSoundObject;
+    [SerializeField] private AudioClip ledgeSound;
+
+    [SerializeField] Animator animator;
+
+
     private void Start()
     {
         movement = GetComponent<Movement>();
@@ -134,12 +142,20 @@ public class ClimbSystem : MonoBehaviour
         movement.isRotatingByMovement = false;
         movement.canJump = true;
 
+        animator.SetBool("Climb", true);
+
+
         timer = timerAction;
+
+        SoundObject soundObj = Instantiate(prefabSoundObject.gameObject).GetComponent<SoundObject>();
+        soundObj.PlayAudio(ledgeSound, 1.2f);
     }
 
     private void MoveLedge()
     {
-        if(ledge == null)
+
+
+        if (ledge == null)
         {
             isMovingLedge = false;
             isLedgeUp = false;
@@ -150,14 +166,14 @@ public class ClimbSystem : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+        float moveVertical = speedClimb;
 
         movement.directionRotate = Vector3.zero;
         movement.playerValues = Vector3.zero;
 
 
-        float moveVertical = Input.GetAxis("Vertical") * speedClimb;
 
-        if(moveVertical > 0)
+        if (moveVertical > 0)
         {
             side = CheckSideByRotate(ledge);
             canMove = false;
@@ -170,7 +186,7 @@ public class ClimbSystem : MonoBehaviour
 
         if (ledge == null)
         {
-           ResetClimb();
+            ResetClimb();
            return;
         }
 
@@ -186,15 +202,15 @@ public class ClimbSystem : MonoBehaviour
 
         if (side == Side.left)
         {
-            movement.playerValues.x = speedClimb;
+            movement.playerValues.x = speedClimb * speedClimb;
         }
         else if (side == Side.right)
         {
-            movement.playerValues.x = -speedClimb;
+            movement.playerValues.x = -speedClimb * 3;
         }
         else if (side == Side.down)
         {
-            movement.playerValues.z = speedClimb;
+            movement.playerValues.z = speedClimb * 3;
         }
     }
 
@@ -242,6 +258,7 @@ public class ClimbSystem : MonoBehaviour
         movement.canJump = true;
 
         timer = timerAction;
+        animator.SetBool("IsLadder", true);
     }
 
     private void MoveStairs()
@@ -262,6 +279,10 @@ public class ClimbSystem : MonoBehaviour
         {
             canMove = false;
             isClimbLedge = true;
+
+
+            animator.SetBool("Climb", true);
+            animator.SetBool("IsLadder", false);
             return;
         }
 
@@ -301,7 +322,7 @@ public class ClimbSystem : MonoBehaviour
             if (isStairsUp == false && timer <= 0) ResetClimb();
 
             movement.playerValues = new Vector3(0, moveVertical);
-            float moveHorizontal = movement.moveValues.x;
+            float moveHorizontal = Input.GetAxis("Horizontal") * speedClimb;
 
             if (side == Side.left)
             {
@@ -314,6 +335,9 @@ public class ClimbSystem : MonoBehaviour
 
         }
 
+        float speedLadder = movement.playerValues.y == 0 ? 0 : movement.playerValues.y / Mathf.Abs(movement.playerValues.y);
+
+        animator.SetFloat("SpeedLadder", speedLadder);
     }
 
     private void CheckJump()
@@ -342,6 +366,8 @@ public class ClimbSystem : MonoBehaviour
         isMovingLedge = false;
 
         //movement.playerValues = Vector3.zero;
+        animator.SetBool("Climb", false);
+        animator.SetBool("IsLadder", false);
 
         isClimbLedge = false;
         canMove = true;

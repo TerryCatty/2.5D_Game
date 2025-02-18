@@ -20,6 +20,12 @@ public class NextLevelZone : MonoBehaviour
     private IEnumerator NextLevel()
     {
         fadeAnimator.Play("Fading");
+        Debug.Log(nextLevel - 1);
+
+        GameManager.instance.SetLevel(nextLevel - 1);
+        GameManager.instance.SaveData();
+
+        GameManager.instance.Adv();
 
         yield return new WaitForSeconds(1);
 

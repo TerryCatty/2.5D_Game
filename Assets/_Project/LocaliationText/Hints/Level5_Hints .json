@@ -1,0 +1,19 @@
+{
+"Level5_Hints ":[
+ {
+  "Key": "Hint1",
+  "Russian": "Кристаллы у статуй обозначают последовательность цветов",
+  "English": "The crystals on the statues represent a sequence of colors."
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Введи код с помощью мишеней",
+  "English": "Enter the code using the targets"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Стреляй в мишени",
+  "English": "Shoot at the targets"
+ }
+]
+}

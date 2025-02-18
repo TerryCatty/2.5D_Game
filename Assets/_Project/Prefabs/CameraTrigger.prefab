@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7660030247336799229
 Transform:
@@ -73,6 +73,6 @@ MonoBehaviour:
     borders: []
     timeChangeRotate: 0
     rotation: {x: 0, y: 0, z: 0}
-    speedChangeOffset: 0
+    timeChangeOffset: 0
     offset: {x: 0, y: 0, z: 0}
     blockedMove: {x: 0, y: 0, z: 0}

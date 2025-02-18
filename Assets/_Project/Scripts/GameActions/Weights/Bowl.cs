@@ -11,6 +11,8 @@ public class Bowl : MonoBehaviour
         if (collision.gameObject.GetComponent<Rigidbody>())
         {
             weight += (int)collision.gameObject.GetComponent<Rigidbody>().mass;
+            Debug.Log((int)collision.gameObject.GetComponent<Rigidbody>().mass);
+            Debug.Log(collision.gameObject.name);
         }
     }
 
@@ -19,6 +21,10 @@ public class Bowl : MonoBehaviour
         if (collision.gameObject.GetComponent<Rigidbody>())
         {
             weight -= (int)collision.gameObject.GetComponent<Rigidbody>().mass;
+            Debug.Log((int)collision.gameObject.GetComponent<Rigidbody>().mass);
+            Debug.Log(collision.gameObject.name);
         }
     }
+
+
 }

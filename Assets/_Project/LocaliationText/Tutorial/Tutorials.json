@@ -1,0 +1,44 @@
+{
+"Tutorials":[
+ {
+  "Key": "Mobile.Jump",
+  "Russian": "С помощью кнопки прыжка вы можете преодолевать препятствия",
+  "English": "You can use the jump button to overcome obstacles."
+ },
+ {
+  "Key": "Mobile.Action",
+  "Russian": "С некоторыми объектами вы можете взаимодействовать, нажав на кнопку действия рядом с ними.",
+  "English": "You can interact with some objects by clicking on the actions button next to them."
+ },
+ {
+  "Key": "Mobile.Cling",
+  "Russian": "Если какое-то препятствие достаточно высокое, то вы можете взобраться на него, если сможете дотянуться до него",
+  "English": "If some obstacle is high enough, then you can climb it if you can reach it."
+ },
+ {
+  "Key": "Mobile.Shoot",
+  "Russian": "С помощью кнопки стрельбы вы можете стрелять магией.",
+  "English": "With the shooting button, you can shoot magic."
+ },
+ {
+  "Key": "Desktop.Jump",
+  "Russian": "С помощью кнопки прыжка (Пробел) вы можете преодолевать препятствия",
+  "English": "Using the jump button (Space bar) You can overcome obstacles"
+ },
+ {
+  "Key": "Desktop.Action",
+  "Russian": "С некоторыми объектами вы можете взаимодействовать, нажав на кнопку действия (клавиша Е) рядом с ними.",
+  "English": "You can interact with some objects by clicking on the actions button (E key) next to them."
+ },
+ {
+  "Key": "Desktop.Cling",
+  "Russian": "Если какое-то препятствие достаточно высокое, то вы можете взобраться на него, если сможете дотянуться до него",
+  "English": "If some obstacle is high enough, then you can climb it if you can reach it."
+ },
+ {
+  "Key": "Desktop.Shoot",
+  "Russian": "С помощью левой кнопки мыши вы можете стрелять магией.",
+  "English": "You can use the left mouse button to shoot magic."
+ }
+]
+}

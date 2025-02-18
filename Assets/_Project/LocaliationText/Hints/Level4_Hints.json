@@ -1,0 +1,14 @@
+{
+"Level4_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Подвинь коробки поменьше так, чтобы большая смогла выехать",
+  "English": "Move the smaller boxes so that the larger one can move out"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Найди способ пробраться через коробки",
+  "English": "Find a way to get through the boxes"
+ }
+]
+}
