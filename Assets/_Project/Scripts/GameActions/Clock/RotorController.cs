@@ -31,7 +31,7 @@ public class RotorController : PlayerAction
 
     private void RotorRotate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveHorizontal = controller.GetComponent<Movement>().moveHorizontal;
 
         rotationRotor -= moveHorizontal * speedRotation * Time.deltaTime;
 

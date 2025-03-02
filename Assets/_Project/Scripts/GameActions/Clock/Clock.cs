@@ -10,6 +10,8 @@ public class Clock : MonoBehaviour
 
     [SerializeField] private Transform hourHand;
     [SerializeField] private Transform minuteHand;
+    [SerializeField] private SoundObject soundObject;
+    [SerializeField] private AudioClip tickSound;
 
     public int hours;
     public int minutes;
@@ -25,6 +27,8 @@ public class Clock : MonoBehaviour
     public Vector3 rotatePoint;
 
 
+    private int prevMinute;
+
     private void Start()
     {
         Init();
@@ -34,6 +38,8 @@ public class Clock : MonoBehaviour
     {
         totalTime = dayDuration / hoursInDay * hours + minutes * dayDuration / (hoursInDay * minutesInHour);
         currentTime = -totalTime % dayDuration;
+
+        prevMinute = minutes;
 
         SetRotateByTime();
     }
@@ -52,6 +58,14 @@ public class Clock : MonoBehaviour
 
         hours = -(int)GetHour();
         minutes = -(int)GetMinutes();
+
+        if(Mathf.Abs(minutes - prevMinute) > 5)
+        {
+            SoundObject soundObj = Instantiate(soundObject.gameObject, transform).GetComponent<SoundObject>();
+            soundObj.PlayAudio(tickSound, 0.2f);
+            prevMinute = minutes;
+        }
+
 
 
         SetRotateByTime();

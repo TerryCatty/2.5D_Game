@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static PushController;
 
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
+    public Animator anim;
+
     private Camera cam;
 
     [Header("Move")]
@@ -15,6 +18,7 @@ public class Movement : MonoBehaviour
 
 
     private float Speed => movementParameters.speed;
+
     private Vector3 moveValuesOffset => movementParameters.moveValuesOffset;
 
     private CharacterController characterController;
@@ -22,22 +26,25 @@ public class Movement : MonoBehaviour
    public Vector3 playerValues = new Vector3();
     private Rigidbody rb;
     public float moveHorizontal, moveVertical;
+    public float moveHorizontalPlayer, moveVerticalPlayer;
     [HideInInspector] public Vector3 moveValues;
 
     public bool isSelfMoving = true;
     [Header("Rotate")]
 
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private Transform rotatePlayer;
+    public Transform rotatePlayer;
 
-    [HideInInspector] public Vector3 directionRotate;
+    public Vector3 directionRotate;
     public bool isRotatingByMovement = true;
+    public bool isRotatingCursor = false;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
 
     public bool canJump;
     public bool isJumping;
+    public bool jumpStart;
 
     public Action isJump;
 
@@ -58,6 +65,8 @@ public class Movement : MonoBehaviour
     private bool sliding;
     private Vector3 hitNormal;
 
+    public bool isActive = true;
+
     void Start()
     {
         cam = Camera.main;
@@ -67,6 +76,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (isActive == false) return;
+
         GravityLogic();
         RotateLogic(directionRotate);
         JumpLogic();
@@ -79,8 +90,8 @@ public class Movement : MonoBehaviour
     {
         if (sliding && isGround)
         {
-            playerValues.x += ((1f - hitNormal.y) * hitNormal.x * (Speed - slideFriction)) * moveValuesOffset.x;
-            playerValues.z += ((1f - hitNormal.y) * hitNormal.z * (Speed - slideFriction)) * moveValuesOffset.z;
+            playerValues.x += (1f - hitNormal.y) * hitNormal.x * (Speed - slideFriction) * moveValuesOffset.x;
+            playerValues.z += (1f - hitNormal.y) * hitNormal.z * (Speed - slideFriction) * moveValuesOffset.z;
             if (UseGravity) playerValues.y = gravityForce * moveValuesOffset.y;
 
             characterController.Move(playerValues * Time.deltaTime);
@@ -89,16 +100,33 @@ public class Movement : MonoBehaviour
         }
 
 
-        moveHorizontal = Input.GetAxis("Horizontal") * Speed / weight;
-        moveVertical = Input.GetAxis("Vertical") * Speed / weight;
+        moveHorizontal =  Input.GetAxis("Horizontal");
+        moveHorizontalPlayer = moveHorizontal * Speed / weight;
 
-        moveValues.x = moveHorizontal * moveValuesOffset.x;
-        moveValues.z = moveVertical * moveValuesOffset.z;
+        moveVertical =  Input.GetAxis("Vertical");
+        moveVerticalPlayer = moveVertical * Speed / weight;
+
+        moveValues.x = moveHorizontalPlayer * moveValuesOffset.x;
+        moveValues.z = moveVerticalPlayer * moveValuesOffset.z;
+
+        if (moveValues.x == 0 && moveValues.z == 0)
+        {
+            anim.SetFloat("Speed", 0);
+        }
+        else
+        {
+            anim.SetFloat("Speed", movementParameters.speed / movementParameters.maxSpeed);
+        }
 
 
         if (isRotatingByMovement)
         {
             directionRotate = moveValues;
+        }
+
+        else if (isRotatingCursor)
+        {
+            RotateByCursor();
         }
 
         if (isSelfMoving == true)
@@ -136,6 +164,16 @@ public class Movement : MonoBehaviour
 
         rotatePlayer.transform.rotation = Quaternion.Lerp(rotatePlayer.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
+    private  void RotateByCursor()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 10f;
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        directionRotate = worldMousePos - transform.position;
+        directionRotate.y = 0;
+
+        RotateLogic(directionRotate);
+    }
 
     private void GravityLogic()
     {
@@ -158,14 +196,31 @@ public class Movement : MonoBehaviour
 
         isJumping = !canJump;
 
-        if (Input.GetAxis("Jump") > 0 && canJump)
-        {
-            isJump?.Invoke();
+        if(isGround)
+            anim.SetBool("IsJump", false);
 
-            isJumping = true;
-            canJump = false;
-            gravityForce = jumpForce;
+        if (Input.GetAxis("Jump") > 0 || jumpStart)
+        {
+            Jump();
         }
+    }
+
+    public void Jump()
+    {
+        if (!canJump) return;
+
+        isJump?.Invoke();
+
+        isJumping = true;
+        anim.SetBool("IsJump", true);
+        canJump = false;
+        gravityForce = jumpForce;
+        jumpStart = false;
+    }
+
+    public void SetJumpStart()
+    {
+        jumpStart = true;
     }
 
     public Side CheckSide(Transform targetObject)

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActionsController : MonoBehaviour
 {
     [SerializeField] private List<PlayerAction> actionsList;
+
+
 
     private void Update()
     {
@@ -13,7 +16,7 @@ public class ActionsController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                actionsList[0].DoAction();
+                DoAction();
             }
 
         }
@@ -32,6 +35,12 @@ public class ActionsController : MonoBehaviour
     public void RemoveAction(PlayerAction action)
     {
         actionsList.Remove(action);
+
+    }
+
+    public void DoAction()
+    {
+        actionsList[0].DoAction();
     }
 }
 

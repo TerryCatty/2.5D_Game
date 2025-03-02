@@ -8,21 +8,24 @@ public class NextLevelZone : MonoBehaviour
     public Animator fadeAnimator;
     public int nextLevel;
 
+    public NextLevelPanel nextLevelPanel;
+
+    Canvas canvas;
+
+    private void Start()
+    {
+        canvas = FindAnyObjectByType<Canvas>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            StartCoroutine(NextLevel());
+            nextLevelPanel = Instantiate(nextLevelPanel);
+            nextLevelPanel.transform.SetParent(canvas.transform, false);
+            nextLevelPanel.Init(nextLevel, fadeAnimator);
         }
     }
 
 
-    private IEnumerator NextLevel()
-    {
-        fadeAnimator.Play("Fading");
-
-        yield return new WaitForSeconds(1);
-
-        SceneManager.LoadScene(nextLevel);
-    }
 }

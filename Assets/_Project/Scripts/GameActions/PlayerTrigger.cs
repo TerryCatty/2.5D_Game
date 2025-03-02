@@ -20,6 +20,7 @@ public class PlayerTrigger : MonoBehaviour
 public struct MovementParams
 {
     public float speed;
+    public float maxSpeed;
     public Vector3 moveValuesOffset;
     
 }
