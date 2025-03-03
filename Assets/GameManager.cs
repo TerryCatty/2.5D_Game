@@ -1,9 +1,8 @@
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
-using UnityEngine.ProBuilder.Shapes;
-using UnityEditor;
 using UnityEngine.SceneManagement;
+using GamePush;
 
 
 [Serializable]
@@ -15,6 +14,7 @@ public struct GameData
 }
 public class GameManager : MonoBehaviour
 {
+   
    public GameData data;
 
     public static GameManager instance;
@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+      
+
     }
 
     private void Start()
@@ -68,8 +70,10 @@ public class GameManager : MonoBehaviour
     #if UNITY_WEBGL
 
             m_GameReadyApi.OnLoadingAPIReady();
+        
         CheckUserAuth();
-    #endif
+        SetGameAPI();
+#endif
     }
 
     public void Load()
@@ -129,12 +133,29 @@ public class GameManager : MonoBehaviour
     {
         isFocus = focus;
         FindAnyObjectByType<VolumeManager>().SetVolume(isFocus && !isPause);
+
+        SetGameAPI();
     }
 
     public void SetPause(bool pause)
     {
         isPause = pause;
         FindAnyObjectByType<VolumeManager>().SetVolume(isFocus && !isPause);
+
+        SetGameAPI();
+    }
+
+    public void SetGameAPI()
+    {
+
+        if (isFocus && isPause == false && SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            m_GameReadyApi.OnGameplayAPIStart();
+        }
+        else if (isFocus == false || isPause || SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            m_GameReadyApi.OnGameplayAPIStop();
+        }
     }
 
 
@@ -178,6 +199,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int level)
     {
         SceneManager.LoadScene(level);
+        SetGameAPI();
     }
 
     public void LoadLevelWithAdv(int level)
@@ -192,6 +214,13 @@ public class GameManager : MonoBehaviour
         FindAnyObjectByType<MenuManager>().Pause(0);
         m_GameReadyApi.OnGameplayAPIStart();
         SceneManager.LoadScene(level);
+        SetGameAPI();
+    }
+
+    private void Update()
+    {
+
+        SetGameAPI();
     }
 
     public void SaveData()

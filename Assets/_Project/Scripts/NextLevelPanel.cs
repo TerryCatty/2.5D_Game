@@ -13,6 +13,8 @@ public class NextLevelPanel : MonoBehaviour
         fadeAnimator = fade;
         fadeAnimator.transform.SetParent(transform);
         Time.timeScale = 0f;
+
+        GameManager.instance.SetPause(true);
     }
 
     public void Next()
@@ -25,12 +27,12 @@ public class NextLevelPanel : MonoBehaviour
     private IEnumerator NextLevel()
     {
         fadeAnimator.Play("Fading");
-        Debug.Log(nextLevel - 1);
 
         GameManager.instance.SetLevel(nextLevel - 1);
         GameManager.instance.SaveData();
 
         yield return new WaitForSeconds(1);
+        GameManager.instance.SetPause(false);
 
         GameManager.instance.LoadLevelWithAdv(nextLevel);
     }
