@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
+using GamePush;
 
 
 [Serializable]
@@ -28,23 +29,6 @@ public class GameManager : MonoBehaviour
 
     int level;
 
-    [DllImport("__Internal")]
-    private static extern void CheckUserAuth();
-    [DllImport("__Internal")]
-    private static extern void AuthUser();
-
-    [DllImport("__Internal")]
-    private static extern void ShowAdvExtern();
-    [DllImport("__Internal")]
-    private static extern void ShowAdvExternLoadLevel();
-
-    [DllImport("__Internal")]
-    private static extern void ShowHintExtern();
-
-    [DllImport("__Internal")]
-    private static extern void SaveExtern(string value);
-    [DllImport("__Internal")]
-    private static extern void LoadExtern();
 
     public bool canGameAPI;
 
@@ -69,7 +53,8 @@ public class GameManager : MonoBehaviour
 
     public void StartReady()
     {
-        m_GameReadyApi.OnLoadingAPIReady();
+        GP_Init.OnReady += ReadyAPI;
+        //m_GameReadyApi.OnLoadingAPIReady();
     }
 
     public void ReadyAPI()
@@ -77,7 +62,21 @@ public class GameManager : MonoBehaviour
         canGameAPI = true;
         CheckUserAuth();
         SetGameAPI();
+
     }
+
+    public void CheckUserAuth()
+    {
+        if (GP_Platform.HasIntegratedAuth() == false) return;
+
+        SendMsgAuth(GP_Player.IsLoggedIn());
+    }
+    public void SendMsgAuth(bool auth)
+    {
+        isAuth = auth;
+        Load();
+    }
+
 
     public void Load()
     {
@@ -87,7 +86,6 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                LoadExtern();
                 //LoadData("");
             }
             catch
@@ -115,21 +113,6 @@ public class GameManager : MonoBehaviour
     public void SetHitManager(HelpManager manager)
     {
         hintManager = manager;
-    }
-
-    public void SendMsgAuth(string isNotAuth)
-    {
-        if (isNotAuth == "true")
-        {
-            isAuth = false;
-            Debug.Log("NotAuth");
-        }
-        else if (isNotAuth == "false")
-        {
-            isAuth = true;
-            Debug.Log("Auth");
-        }
-        Load();
     }
 
     private void OnApplicationFocus(bool focus)
@@ -178,7 +161,8 @@ public class GameManager : MonoBehaviour
         {
             FindAnyObjectByType<MenuManager>().Pause(1);
             m_GameReadyApi.OnGameplayAPIStop();
-            ShowAdvExtern();
+            GP_Ads.ShowFullscreen(OnFullscreenStart, AdvIsShow);
+            // ShowAdvExtern();
         }
         catch
         {
@@ -186,7 +170,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AdvIsShow()
+    public void AdvIsShow(bool success)
     {
         FindAnyObjectByType<MenuManager>().Pause(0);
         m_GameReadyApi.OnGameplayAPIStart();
@@ -212,9 +196,10 @@ public class GameManager : MonoBehaviour
         this.level = level;
         FindAnyObjectByType<MenuManager>().Pause(1);
         m_GameReadyApi.OnGameplayAPIStop();
-        ShowAdvExternLoadLevel();
+        GP_Ads.ShowFullscreen(OnFullscreenStart, AdvIsShowNextLevel);
+        //ShowAdvExternLoadLevel();
     }
-    public void AdvIsShowNextLevel()
+    public void AdvIsShowNextLevel(bool success)
     {
         FindAnyObjectByType<MenuManager>().Pause(0);
         m_GameReadyApi.OnGameplayAPIStart();
@@ -241,7 +226,6 @@ public class GameManager : MonoBehaviour
 
             try
             {
-                SaveExtern(json);
             }
             catch
             {
@@ -272,7 +256,8 @@ public class GameManager : MonoBehaviour
         {
             m_GameReadyApi.OnGameplayAPIStop();
             FindAnyObjectByType<MenuManager>().Pause(1);
-            ShowHintExtern();
+            //ShowHintExtern();
+            GP_Ads.ShowRewarded("Hint", OnRewarded);
         }
         catch
         {
@@ -285,6 +270,19 @@ public class GameManager : MonoBehaviour
         m_GameReadyApi.OnGameplayAPIStart();
         FindAnyObjectByType<MenuManager>().Pause(0);
         hintManager.OpenConfirm();
+    }
+
+    public void OnFullscreenStart()
+    {
+
+
+    }
+    public void OnRewarded(string id)
+    {
+        if(id == "Hint")
+        {
+            AdvIsShowHint();
+        }
     }
 
     public void ResetData()
