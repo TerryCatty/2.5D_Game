@@ -83,28 +83,32 @@ mergeInto(LibraryManager.library, {
 		window.location.href = link;
 	},
 	LoadingAPIReady: function(){
-console.log("--------Podkluchaem API--------");
-ysdk.features.LoadingAPI.ready();
-console.log("--------Podkluchili API--------");
+		YaGames
+        .init()
+        .then(ysdk => {
+          
+			ysdk.features.LoadingAPI.ready();
+    		unityInstance.SendMessage('GameManager', 'ReadyAPI');
+        });
 },
 
 GameplayAPIStart: function(){
-ysdk.features.GameplayAPI.start()
-console.log("--------Start API--------");
+	YaGames
+        .init()
+        .then(ysdk => {
+          
+			ysdk.features.GameplayAPI.start();
+        });
 },
 
 GameplayAPIStop: function(){
-ysdk.features.GameplayAPI.stop()
-console.log("--------Stop API--------");
+	YaGames
+        .init()
+        .then(ysdk => {
+          
+			ysdk.features.GameplayAPI.stop();
+        });
 },
-GameplayAPIStop: function(){
-
-ysdk.features.GameplayAPI.stop()
-
-console.log("--------Stop API--------");
-
-},
-
 AuthUser: function(){
       auth();
     },

@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
-using GamePush;
 
 
 [Serializable]
@@ -14,8 +13,8 @@ public struct GameData
 }
 public class GameManager : MonoBehaviour
 {
-   
-   public GameData data;
+
+    public GameData data;
 
     public static GameManager instance;
 
@@ -47,6 +46,8 @@ public class GameManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void LoadExtern();
 
+    public bool canGameAPI;
+
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
         }
 
         else
@@ -61,19 +63,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-      
+
 
     }
 
-    private void Start()
+    public void StartReady()
     {
-    #if UNITY_WEBGL
+        m_GameReadyApi.OnLoadingAPIReady();
+    }
 
-            m_GameReadyApi.OnLoadingAPIReady();
-        
+    public void ReadyAPI()
+    {
+        canGameAPI = true;
         CheckUserAuth();
         SetGameAPI();
-#endif
     }
 
     public void Load()
@@ -118,10 +121,10 @@ public class GameManager : MonoBehaviour
     {
         if (isNotAuth == "true")
         {
-           isAuth = false;
+            isAuth = false;
             Debug.Log("NotAuth");
         }
-        else if(isNotAuth == "false")
+        else if (isNotAuth == "false")
         {
             isAuth = true;
             Debug.Log("Auth");
@@ -147,21 +150,23 @@ public class GameManager : MonoBehaviour
 
     public void SetGameAPI()
     {
+        if (canGameAPI == false) return;
 
-        if (isFocus && isPause == false && SceneManager.GetActiveScene().buildIndex != 0)
+        if (isFocus && isPause == false && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 9)
         {
             m_GameReadyApi.OnGameplayAPIStart();
         }
-        else if (isFocus == false || isPause || SceneManager.GetActiveScene().buildIndex == 0)
+        else if (isFocus == false || isPause || SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 9)
         {
             m_GameReadyApi.OnGameplayAPIStop();
         }
+
     }
 
 
     public void SetLevel(int level)
     {
-        if(level > data.levels)
+        if (level > data.levels)
         {
             data.levels = level;
         }
@@ -219,8 +224,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
-        SetGameAPI();
+        if (canGameAPI)
+        {
+            SetGameAPI();
+        }
     }
 
     public void SaveData()

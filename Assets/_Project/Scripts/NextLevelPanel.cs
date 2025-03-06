@@ -31,7 +31,7 @@ public class NextLevelPanel : MonoBehaviour
         GameManager.instance.SetLevel(nextLevel - 1);
         GameManager.instance.SaveData();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
         GameManager.instance.SetPause(false);
 
         GameManager.instance.LoadLevelWithAdv(nextLevel);

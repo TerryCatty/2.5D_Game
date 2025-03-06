@@ -679,17 +679,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352472882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4063474}
-  m_Father: {fileID: 1397863256}
+  m_Father: {fileID: 1510026769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000030517, y: -739}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -301.31006, y: 75.16}
   m_SizeDelta: {x: 602.62, y: 150.3192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352472884
@@ -815,14 +815,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1352472883}
+  m_Children: []
   m_Father: {fileID: 2098379131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1692}
-  m_SizeDelta: {x: 836.6785, y: 2228.1929}
+  m_AnchoredPosition: {x: 0, y: 0.000015438}
+  m_SizeDelta: {x: 836.6785, y: 821.8643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397863257
 MonoBehaviour:
@@ -844,28 +843,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041C\u0440\u0430\u043A \u0438 \u043A\u0440\u043E\u0432\u044C. \u0413\u0434\u0435
-    \u043A\u043E\u043D\u0447\u0430\u0435\u0442\u0441\u044F \u0441\u043B\u0435\u0434,
-    \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442\u0441\u044F \u0431\u043E\u0439\u043D\u044F...\r\n\u0413\u043B\u0430\u0432\u043D\u044B\u0435
-    \u0440\u043E\u043B\u0438:\r\n\r\n\u0422\u0430\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
-    \u0420\u044B\u0446\u0430\u0440\u044C \u2013 \u041F\u0440\u043E\u0442\u0430\u0433\u043E\u043D\u0438\u0441\u0442\r\n\r\n\"\u0422\u0451\u043C\u043D\u0430\u044F
-    \u0434\u0443\u0448\u0430, \u0447\u0442\u043E \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0442\u0441\u044F
-    \u043F\u043E \u0441\u043B\u0435\u0434\u0443 \u043C\u0435\u0441\u0442\u0438...\"\r\n\r\n\r\n\r\n\u0413\u0440\u0430\u0444
-    \u0414\u0440\u0430\u043A\u0443\u043B\u0430 \u2013 \u0413\u043B\u0430\u0432\u043D\u044B\u0439
-    \u0430\u043D\u0442\u0430\u0433\u043E\u043D\u0438\u0441\u0442\r\n\r\n\"\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u043E,
-    \u0447\u0442\u043E \u0434\u0435\u0440\u0436\u0438\u0442 \u0432 \u0441\u0432\u043E\u0438\u0445
-    \u0440\u0443\u043A\u0430\u0445 \u0433\u043E\u0440\u043E\u0434\u0430 \u0438 \u0441\u0443\u0434\u044C\u0431\u044B...\"\r\n\r\n\r\n 
-    \u041D\u0430\u0434 \u0438\u0433\u0440\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u0430\u043B\u0438:\r\n\u0413\u0435\u0439\u043C\u0434\u0438\u0437\u0430\u0439\u043D\u0435\u0440\r                                    
-    \u0410\u043D\u0434\u0440\u0435\u0439 \u0411.\r\n\"\u0422\u043E\u0442, \u043A\u0442\u043E
-    \u0441\u0442\u043E\u044F\u043B \u0443 \u0438\u0441\u0442\u043E\u043A\u043E\u0432
-    \u044D\u0442\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430\u2026\"\n\r\n\r\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442             
-    TerryCatty \n\r\n\"\u0422\u043E\u0442, \u043A\u0442\u043E \u0432\u043E\u043F\u043B\u043E\u0442\u0438\u043B
-    \u043C\u0435\u0447\u0442\u0443, \u0432 \u0440\u0435\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u2026\"\n\r\n\r\nSound-\u0434\u0438\u0437\u0430\u0439\u043D\u0435\u0440          
-    \u0410\u043D\u0434\u0440\u0435\u0439 \u0411.\n\r\n\"\u0422\u043E\u0442, \u043A\u0442\u043E
-    \u0441\u043E\u0437\u0434\u0430\u043B \u0430\u0442\u043C\u043E\u0441\u0444\u0435\u0440\u0443
-    \u0438\u0433\u0440\u043E\u0432\u043E\u0433\u043E  \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0430\u2026\"\r\n\r\n\u0410
-    \u0442\u0430\u043A\u0436\u0435 \u0442\u0435, \u043A\u0442\u043E \u0434\u043E\u0440\u0430\u0431\u043E\u0442\u0430\u043B
-    \u0438\u0433\u0440\u0443 \u0434\u043E \u0441\u0432\u043E\u0435\u0433\u043E \u0438\u0434\u0435\u0430\u043B\u0430\u2026\r\n\u0425\u0443\u0434\u043E\u0436\u043D\u0438\u043A\r\n\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0449\u0438\u043A\r\nLead\r\n\u0410\u0440\u0442-\u0434\u0438\u0437\u0430\u0439\u043D\u0435\u0440\r\n\u041B\u0435\u0432\u0435\u043B-\u0434\u0438\u0437\u0430\u0439\u043D\u0435\u0440"
+  m_text: "\u0414\u043E\u0440\u043E\u0433\u043E\u0439 \u0438\u0433\u0440\u043E\u043A!\n\u0411\u043E\u043B\u044C\u0448\u043E\u0435
+    \u0441\u043F\u0430\u0441\u0438\u0431\u043E\u043B, \u0447\u0442\u043E \u043F\u0440\u043E\u0448\u0435\u043B
+    \u043D\u0430\u0448\u0443 \u0438\u0433\u0440\u0443 \u0434\u043E \u043A\u043E\u043D\u0446\u0430!\n\u041D\u0430\u0434\u0435\u044E\u0441\u044C,
+    \u0442\u0435\u0431\u0435 \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0430\u0441\u044C
+    \u043D\u0430\u0448\u0430 \u0438\u0433\u0440\u0430. \u041D\u0430\u0448\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u044F.\n\n\u0411\u043E\u043B\u044C\u0448\u0435
+    \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432 \u0432\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435
+    \u0443\u0432\u0438\u0434\u0435\u0442\u044C \u043D\u0430 \u043D\u0430\u0448\u0435\u0439
+    \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1041,6 +1026,7 @@ RectTransform:
   - {fileID: 2098379131}
   - {fileID: 1539603172}
   - {fileID: 516336183}
+  - {fileID: 1352472883}
   - {fileID: 1998305592}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1085,6 +1071,7 @@ MonoBehaviour:
   text: {fileID: 217151742}
   image: {fileID: 530672733}
   spawnObject: {fileID: 2098379130}
+  spawnObject2: {fileID: 0}
   autoStart: 1
   parts:
   - text: 
@@ -1880,7 +1867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098379130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f12a2e3d036967d46b175ee17143e543, type: 3}
   m_Name: 

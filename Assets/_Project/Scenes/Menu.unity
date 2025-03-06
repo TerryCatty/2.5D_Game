@@ -322,7 +322,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2228,6 +2228,7 @@ MonoBehaviour:
   isAuth: 0
   isPause: 0
   isFocus: 0
+  canGameAPI: 0
 --- !u!4 &679702046
 Transform:
   m_ObjectHideFlags: 0
@@ -3919,6 +3920,7 @@ GameObject:
   - component: {fileID: 1720713713}
   - component: {fileID: 1720713712}
   - component: {fileID: 1720713714}
+  - component: {fileID: 1720713715}
   m_Layer: 5
   m_Name: Fading (1)
   m_TagString: Untagged
@@ -4006,6 +4008,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1720713715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720713709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d68115c03b97514f922d7d8a68e4179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 679702045}
 --- !u!1 &1801939451
 GameObject:
   m_ObjectHideFlags: 0
