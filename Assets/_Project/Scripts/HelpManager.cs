@@ -114,14 +114,18 @@ public class HelpManager : MonoBehaviour
     {
         Debug.Log("Help");
 
-        GameManager.instance.AdvHint();
-
+        if(count > 0)
+            GameManager.instance.AdvHint();
+        else
+            OpenConfirm();
     }
 
     public void OpenConfirm()
     {
-
-        if (count == 0) return;
+        if (count == 0)
+        {
+            count++;
+        }
 
         count--;
         textCount.text = "";//count.ToString();

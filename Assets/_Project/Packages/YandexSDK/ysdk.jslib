@@ -126,6 +126,17 @@ CheckUserAuth: function(){
 },
     
    	
+SaveExternGamePush: function(date){
+		var dateString = UTF8ToString(date);
+		var myObj = JSON.parse(dateString);
+		gp.player.set('gamedatajson', JSON.stringify(myObj));
+		gp.player.sync();
+	},
 
+	
+LoadExternGamePush: function(){
+		console.log("Load in gamePush");
+		unityInstance.SendMessage("GameManager", "LoadData", gp.player.get('gamedatajson'));
+	},
 
 });
