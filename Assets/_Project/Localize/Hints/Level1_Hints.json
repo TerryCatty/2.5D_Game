@@ -1,0 +1,34 @@
+{
+"Level1_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Какой-то статуи не хватает",
+  "English": "There's a statue missing.",
+  "Deutch": "Es fehlt eine Statue",
+  "Ukrainian": "Якоїсь статуї не вистачає",
+  "Japan": "像がない",
+  "Turkish": "Kayıp bir heykel var.",
+  "Chinese": "有一尊雕像不見了"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Подвинь бочку",
+  "English": "Move the barrel",
+  "Deutch": "Bewegen Sie den Lauf",
+  "Ukrainian": "Посунь бочку",
+  "Japan": "バレルを動かす",
+  "Turkish": "Namluyu hareket ettirin",
+  "Chinese": "移動槍管"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Установи правильное время",
+  "English": "Set the correct time.",
+  "Deutch": "Den richtigen Zeitpunkt festlegen",
+  "Ukrainian": "Встановіть правильний час",
+  "Japan": "適切な時間を設定する",
+  "Turkish": "Doğru zamanı ayarlayın",
+  "Chinese": "設定正確的時間"
+ }
+]
+}

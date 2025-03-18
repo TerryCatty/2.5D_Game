@@ -1,0 +1,24 @@
+{
+"Level4_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Подвинь коробки поменьше так, чтобы большая смогла выехать",
+  "English": "Move the smaller boxes so that the larger one can move out",
+  "Deutch": "Verschieben Sie die kleineren Kisten, damit die größere ausziehen kann.",
+  "Ukrainian": "Посунь коробки поменше так, щоб велика змогла виїхати",
+  "Japan": "大きい箱が移動できるように、小さい箱を移動させる。",
+  "Turkish": "Büyük kutunun dışarı çıkabilmesi için küçük kutuları taşıyın",
+  "Chinese": "移動較小的箱子，讓較大的箱子可以移出"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Найди способ пробраться через коробки",
+  "English": "Find a way to get through the boxes",
+  "Deutch": "Finden Sie einen Weg durch die Kisten",
+  "Ukrainian": "Знайди спосіб пробратися через коробки",
+  "Japan": "箱の中から道を見つける",
+  "Turkish": "Kutular arasında bir yol bulun",
+  "Chinese": "在箱子中尋找出路"
+ }
+]
+}

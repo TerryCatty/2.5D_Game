@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TutorialTrigger : MonoBehaviour
+public class TutorialTrigger : Localize
 {
     [SerializeField] private GameObject tutorialWindow;
 
@@ -26,6 +26,7 @@ public class TutorialTrigger : MonoBehaviour
 
     bool isOpacity;
     bool isOpacityNot;
+    public string list, folder, mobileKey, desktopKey, key;
 
     private void Start()
     {
@@ -54,6 +55,11 @@ public class TutorialTrigger : MonoBehaviour
             textOpacity.Add(text.color.a);
             //text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         }
+
+        string json = LocalizationManager.instance.folders.First(folder => folder.name == this.folder).textList.First(text => text.name == list).text;
+        string keyJson = GameManager.instance.isAndroid ? mobileKey : desktopKey;
+        keyJson += key;
+        textTutorial = GetLocalizeText(json, list, keyJson, LocalizationManager.instance.languages[LocalizationManager.instance.langIndex].language);
 
         tutorialWindow.SetActive(false);
     }

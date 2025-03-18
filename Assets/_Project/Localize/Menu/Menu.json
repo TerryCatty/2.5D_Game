@@ -1,0 +1,34 @@
+{
+"Menu":[
+ {
+  "Key": "Play",
+  "Russian": "Играть",
+  "English": "Play",
+  "Deutch": "Spielen",
+  "Ukrainian": "Грати",
+  "Japan": "プレー",
+  "Turkish": "Oyun",
+  "Chinese": "遊戲"
+ },
+ {
+  "Key": "NewGame",
+  "Russian": "Новая игра",
+  "English": "New Game",
+  "Deutch": "Neues Spiel",
+  "Ukrainian": "Нова гра",
+  "Japan": "ニューゲーム",
+  "Turkish": "Yeni oyun",
+  "Chinese": "新遊戲"
+ },
+ {
+  "Key": "Menu",
+  "Russian": "Меню",
+  "English": "Menu",
+  "Deutch": "Menü",
+  "Ukrainian": "Меню",
+  "Japan": "メニュー",
+  "Turkish": "Menü",
+  "Chinese": "選單"
+ }
+]
+}

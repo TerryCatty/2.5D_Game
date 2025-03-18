@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class VisualNovelle : MonoBehaviour
+public class VisualNovelle : Localize
 {
     public GameObject panel;
     public GameObject prevButton;
@@ -21,14 +21,34 @@ public class VisualNovelle : MonoBehaviour
 
     private int count;
 
-    public List<NovellPart> parts;
+    public List<NovellPart> parts = new List<NovellPart>();
+    public string folder, list;
     public bool isPause;
+
+    public int idFont;
 
     private void Start()
     {
+        CheckLanguage();
         if (autoStart)
         {
             OpenPanel();
+        }
+
+    }
+
+    private void CheckLanguage()
+    {
+        for (int i = 0; i < parts.Count; i++)
+        {
+            LocalizeFolders folder = LocalizationManager.instance.folders.First(folder => folder.name == this.folder);
+            string json = folder.textList.First(text => text.name == list).text;
+
+            string keyJson = parts[i].key;
+
+            Debug.Log(keyJson);
+
+            parts[i].text = GetLocalizeText(json, list, keyJson, LocalizationManager.instance.languages[LocalizationManager.instance.langIndex].language);
         }
     }
 
@@ -61,6 +81,7 @@ public class VisualNovelle : MonoBehaviour
             text.text = "";
         }
         image.sprite = parts[count].image;
+        text.font = GetFontAsset(idFont);
     }
 
     public void Next()
@@ -72,7 +93,6 @@ public class VisualNovelle : MonoBehaviour
     public void Previous()
     {
         StartCoroutine(PrevSlide());
-
     }
 
     IEnumerator NextSlide()
@@ -158,8 +178,9 @@ public class VisualNovelle : MonoBehaviour
 
 
 [Serializable]
-public struct NovellPart
+public class NovellPart
 {
     public string text;
     public Sprite image;
+    public string key;
 }

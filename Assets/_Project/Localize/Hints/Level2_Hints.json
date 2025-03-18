@@ -1,0 +1,34 @@
+{
+"Level2_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Установи люстру на весы",
+  "English": "Install the chandelier on the scale",
+  "Deutch": "Legen Sie den Kronleuchter auf die Waage",
+  "Ukrainian": "Установи люстру на ваги",
+  "Japan": "シャンデリアを天秤にかける",
+  "Turkish": "Avizeyi teraziye koy",
+  "Chinese": "把吊燈放在秤上"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Люстра имеет вес",
+  "English": "The chandelier has weight",
+  "Deutch": "Der Kronleuchter hat ein Gewicht",
+  "Ukrainian": "Люстра має вагу",
+  "Japan": "シャンデリアには重量がある",
+  "Turkish": "Avizenin bir ağırlığı var",
+  "Chinese": "吊燈的重量"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Установи правильный вес",
+  "English": "Set the correct weight",
+  "Deutch": "Das richtige Gewicht einstellen",
+  "Ukrainian": "Встановіть правильну вагу",
+  "Japan": "適正体重の設定",
+  "Turkish": "Doğru ağırlığı ayarlayın",
+  "Chinese": "設定正確的重量"
+ }
+]
+}

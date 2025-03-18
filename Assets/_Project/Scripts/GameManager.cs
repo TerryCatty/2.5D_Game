@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     int level;
 
+    public bool isAndroid = false;
+
 
 
     [DllImport("__Internal")]
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        SendMsgAuth(false);
+        SendMsgAuth(GP_Player.IsLoggedIn());
     }
     public void SendMsgAuth(bool auth)
     {
@@ -93,24 +95,22 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("isAuth " + isAuth);
 
-        LoadData(GP_Player.GetString("gamedatajson"));
+        //LoadData(GP_Player.GetString("gamedatajson"));
 
 
-        /*if (isAuth)
+        if (isAuth)
         {
             try
             {
-                //LoadExternGamePush();
                 LoadData(GP_Player.GetString("gamedatajson"));
-                //GP_Player.Load();
             }
             catch
             {
-                if (PlayerPrefs.HasKey("GameData"))
+               /* if (PlayerPrefs.HasKey("GameData"))
                 {
                     LoadData(PlayerPrefs.GetString("GameData"));
                 }
-                Debug.Log("LoadPlayerPrefs1");
+                Debug.Log("LoadPlayerPrefs1");*/
             }
         }
         else
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                 LoadData(PlayerPrefs.GetString("GameData"));
             }
             Debug.Log("LoadPlayerPrefs");
-        }*/
+        }
 
         m_GameReadyApi.OnGameplayAPIStart();
     }
@@ -235,11 +235,11 @@ public class GameManager : MonoBehaviour
     {
         string json = JsonUtility.ToJson(data);
 
-        GP_Player.Set("gamedatajson", json);
-        GP_Player.Sync(SyncStorageType.preffered);
+       /* GP_Player.Set("gamedatajson", json);
+        GP_Player.Sync(SyncStorageType.preffered);*/
 
 
-       /* if (isAuth)
+        if (isAuth)
         {
 
             Debug.Log("Save");
@@ -248,13 +248,18 @@ public class GameManager : MonoBehaviour
             {
                 GP_Player.Set("gamedatajson", json);
                 GP_Player.Sync(SyncStorageType.preffered);
-                // SaveExternGamePush(json);
             }
             catch
             {
                 Debug.Log("error in save");
             }
-        }*/
+        }
+        else
+        {
+            PlayerPrefs.SetString("GameData", json);
+            PlayerPrefs.Save();
+            Debug.Log("SavePlayerPrefs" + json);
+        }
 
        /* PlayerPrefs.SetString("GameData", json);
         PlayerPrefs.Save();
