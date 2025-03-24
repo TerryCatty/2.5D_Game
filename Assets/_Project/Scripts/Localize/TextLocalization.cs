@@ -13,14 +13,14 @@ public class TextLocalization : Localize
     private void Start()
     {
         textLcz = GetComponent<TextMeshProUGUI>();
-        LocalizationManager.instance.changeLang += CheckLanguage;
         CheckLanguage();
+        LocalizationManager.instance.changeLang += CheckLanguage;
     }
 
     private void CheckLanguage()
     {
-        string json = LocalizationManager.instance.folders.First(folder => folder.name == this.folder).textList.First(text => text.name == list).text;
-        textLcz.text = GetLocalizeText(json, list, key, LocalizationManager.instance.languages[LocalizationManager.instance.langIndex].language);
+        string json = GetLocalizationFile(folder, list);
+        textLcz.text = GetLocalizeText(json, list, key, GetCurrentLanguage());
 
         TMP_FontAsset fontAsset = GetFontAsset(idFont);
 

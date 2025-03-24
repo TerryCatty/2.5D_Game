@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Languages
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 4
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 256
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 80bcc1de976704b4db2a7a53bfd6b2ed, type: 3}
+    - {fileID: 2800000, guid: 9b6672487d978d1408a71c70c41c906f, type: 3}
+    - {fileID: 2800000, guid: a991be4416503fa4d86248a0cb0fdc9e, type: 3}
+    - {fileID: 2800000, guid: cc58fe3ebc01be94aac88d92a13bdbc1, type: 3}
+    - {fileID: 2800000, guid: 46a0f6c9f6083dc4d9d78b45ce3772dc, type: 3}
+    - {fileID: 2800000, guid: 913ea9396569e6d489d9b517f61085ba, type: 3}
+    - {fileID: 2800000, guid: 2e5ce4c7b64eae44a9a0974802ae0a26, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - a991be4416503fa4d86248a0cb0fdc9e: 1783927523
+    - 2e5ce4c7b64eae44a9a0974802ae0a26: 21300000
+    - 9b6672487d978d1408a71c70c41c906f: 21300000
+    - 913ea9396569e6d489d9b517f61085ba: 21300000
+    - 46a0f6c9f6083dc4d9d78b45ce3772dc: 21300000
+    - cc58fe3ebc01be94aac88d92a13bdbc1: -1292505005
+    - 80bcc1de976704b4db2a7a53bfd6b2ed: -677797935
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1783927523, guid: a991be4416503fa4d86248a0cb0fdc9e, type: 3}
+  - {fileID: 21300000, guid: 2e5ce4c7b64eae44a9a0974802ae0a26, type: 3}
+  - {fileID: 21300000, guid: 9b6672487d978d1408a71c70c41c906f, type: 3}
+  - {fileID: 21300000, guid: 913ea9396569e6d489d9b517f61085ba, type: 3}
+  - {fileID: 21300000, guid: 46a0f6c9f6083dc4d9d78b45ce3772dc, type: 3}
+  - {fileID: -1292505005, guid: cc58fe3ebc01be94aac88d92a13bdbc1, type: 3}
+  - {fileID: -677797935, guid: 80bcc1de976704b4db2a7a53bfd6b2ed, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - japan_0
+  - Circle_Flag_of_the_People's_Republic_of_China.svg
+  - Turkey_emblem_round.svg
+  - free-icon-russia-197408
+  - free-icon-united-states-197484
+  - germany_0
+  - ukrainian_0
+  m_RenderDataMap: {}
+  m_Tag: Languages
+  m_IsVariant: 0

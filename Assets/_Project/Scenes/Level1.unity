@@ -3311,11 +3311,16 @@ MonoBehaviour:
   - text: "\u041A\u0430\u043A\u043E\u0439-\u0442\u043E \u0441\u0442\u0430\u0442\u0443\u0438
       \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442"
     image: {fileID: -288599011, guid: 8b287caf339d4fb44a7c5221451757f2, type: 3}
+    key: Hint1
   - text: "\u041F\u043E\u0434\u0432\u0438\u043D\u044C \u0431\u043E\u0447\u043A\u0443"
     image: {fileID: -288599011, guid: 8b287caf339d4fb44a7c5221451757f2, type: 3}
+    key: Hint2
   - text: "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0435
       \u0432\u0440\u0435\u043C\u044F"
     image: {fileID: -288599011, guid: 8b287caf339d4fb44a7c5221451757f2, type: 3}
+    key: Hint3
+  folder: Hints
+  list: Level1_Hints
   count: 3
 --- !u!1 &344166364
 GameObject:

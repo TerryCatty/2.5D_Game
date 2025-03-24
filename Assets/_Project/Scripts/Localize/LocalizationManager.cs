@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using GamePush;
 
 public class LocalizationManager : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class LocalizationManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            LoadData();
             DontDestroyOnLoad(gameObject);
         }
 
@@ -31,29 +31,37 @@ public class LocalizationManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        LoadData();
+    }
+
     public void ChangeLanguage(int language)
     {
-        if (language == langIndex) return;
-
         langIndex = language;
         changeLang?.Invoke();
-
-        SaveData();
+        GP_Language.Change((GamePush.Language)languages[langIndex].language);
     }
 
 
-    private void SaveData()
-    {
-        PlayerPrefs.SetInt("language", langIndex);
-        PlayerPrefs.Save();
-    }
 
     public void LoadData()
     {
-        if(PlayerPrefs.HasKey("language"))
-            langIndex = PlayerPrefs.GetInt("language");
+       
+        string currentLanguage =
+        GP_Language.Current().ToString();
 
+        Debug.Log(currentLanguage);
 
+        foreach (LanguageStruct language in languages)
+        {
+            if(language.language.ToString().ToLower() == currentLanguage.ToLower())
+            {
+                langIndex = languages.IndexOf(language);
+                break;
+            }
+        }
+       ChangeLanguage(langIndex);
     }
 }
 
@@ -72,7 +80,7 @@ public enum Language
 {
     Russian,
     English,
-    Deutch,
+    German,
     Ukrainian,
     Japan,
     Turkish,

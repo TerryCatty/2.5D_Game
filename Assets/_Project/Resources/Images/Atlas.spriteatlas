@@ -34,9 +34,22 @@ SpriteAtlas:
       m_IgnorePlatformSupport: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 4
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -45,53 +58,33 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: c3088393cc7c0604dacad437a40d1d9a, type: 3}
-    - {fileID: 2800000, guid: 2e386b331c78cbb419daf58801d06063, type: 3}
-    - {fileID: 2800000, guid: b43448cfd87bbf6408f715e15353a800, type: 3}
-    - {fileID: 2800000, guid: a942c42acc2addc4ea2d98e3a94e13c2, type: 3}
-    - {fileID: 2800000, guid: b606943f87d29224d817eb949eec0773, type: 3}
-    - {fileID: 2800000, guid: 0e5ecd02d595e654d995deb876bcb5ca, type: 3}
-    - {fileID: 2800000, guid: 430f7e11166102b45a51fc1e6b580e98, type: 3}
-    - {fileID: 2800000, guid: ca5d53c0d8be5734f9d481f6076c461c, type: 3}
-    - {fileID: 2800000, guid: 67ad83023da907d40811de28ee7412f6, type: 3}
-    - {fileID: 2800000, guid: 79de962488e131e4c83a93e24072117f, type: 3}
+    - {fileID: 2800000, guid: 9edd90a1a670dfd4dbc56ccdc141934d, type: 3}
+    - {fileID: 2800000, guid: 76bed8a160bee2f4f9000c4e29b9b3f0, type: 3}
+    - {fileID: 2800000, guid: 359c3223b3f373449a9629ab9eedbf13, type: 3}
+    - {fileID: 2800000, guid: 1ad2dcfa66ace6b44918cd7a3cb10968, type: 3}
+    - {fileID: 2800000, guid: 20fd9cb896594f04991517f848de7ffe, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - ca5d53c0d8be5734f9d481f6076c461c: 21300000
-    - 430f7e11166102b45a51fc1e6b580e98: 21300000
-    - 67ad83023da907d40811de28ee7412f6: 21300000
-    - 0e5ecd02d595e654d995deb876bcb5ca: 21300000
-    - 2e386b331c78cbb419daf58801d06063: 21300000
-    - c3088393cc7c0604dacad437a40d1d9a: 21300000
-    - 79de962488e131e4c83a93e24072117f: 21300000
-    - a942c42acc2addc4ea2d98e3a94e13c2: 21300000
-    - b606943f87d29224d817eb949eec0773: 21300000
-    - b43448cfd87bbf6408f715e15353a800: 21300000
+    - 9edd90a1a670dfd4dbc56ccdc141934d: 21300000
+    - 76bed8a160bee2f4f9000c4e29b9b3f0: 21300000
+    - 359c3223b3f373449a9629ab9eedbf13: 21300000
+    - 20fd9cb896594f04991517f848de7ffe: 21300000
+    - 1ad2dcfa66ace6b44918cd7a3cb10968: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: ca5d53c0d8be5734f9d481f6076c461c, type: 3}
-  - {fileID: 21300000, guid: 430f7e11166102b45a51fc1e6b580e98, type: 3}
-  - {fileID: 21300000, guid: 67ad83023da907d40811de28ee7412f6, type: 3}
-  - {fileID: 21300000, guid: 0e5ecd02d595e654d995deb876bcb5ca, type: 3}
-  - {fileID: 21300000, guid: 2e386b331c78cbb419daf58801d06063, type: 3}
-  - {fileID: 21300000, guid: c3088393cc7c0604dacad437a40d1d9a, type: 3}
-  - {fileID: 21300000, guid: 79de962488e131e4c83a93e24072117f, type: 3}
-  - {fileID: 21300000, guid: a942c42acc2addc4ea2d98e3a94e13c2, type: 3}
-  - {fileID: 21300000, guid: b606943f87d29224d817eb949eec0773, type: 3}
-  - {fileID: 21300000, guid: b43448cfd87bbf6408f715e15353a800, type: 3}
+  - {fileID: 21300000, guid: 9edd90a1a670dfd4dbc56ccdc141934d, type: 3}
+  - {fileID: 21300000, guid: 76bed8a160bee2f4f9000c4e29b9b3f0, type: 3}
+  - {fileID: 21300000, guid: 359c3223b3f373449a9629ab9eedbf13, type: 3}
+  - {fileID: 21300000, guid: 20fd9cb896594f04991517f848de7ffe, type: 3}
+  - {fileID: 21300000, guid: 1ad2dcfa66ace6b44918cd7a3cb10968, type: 3}
   m_PackedSpriteNamesToIndex:
-  - photo_5292243129036043363_y
-  - photo_5292243129036043362_y
-  - photo_5292243129036043365_y
-  - photo_5292243129036043361_y
-  - photo_5292243129036043356_y
-  - photo_5292023042026892472_y
-  - photo_5292243129036043366_y
-  - photo_5292243129036043358_y
-  - photo_5292243129036043360_y
-  - photo_5292243129036043357_y
+  - foni-papik-pro-hz5y-p-kartinki-krasnii-krest-na-prozrachnom-fone-1-Photoroom
+  - photo_5296703001601370564_y
+  - IMG_4254
+  - IMG_4348
+  - free-bulb-icon-3662-thumb
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

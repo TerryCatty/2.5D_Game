@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StoryAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 4
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: eda3b69b896a5554fb38c3a64097cb27, type: 3}
+    - {fileID: 2800000, guid: 14807687f22f8e5469d9630621524583, type: 3}
+    - {fileID: 2800000, guid: c00d354eaa20a544b8a56b28463b6149, type: 3}
+    - {fileID: 2800000, guid: be10d6dda782c7748a6e7fac9f3133c6, type: 3}
+    - {fileID: 2800000, guid: d119932436df5354d8086abf350ab043, type: 3}
+    - {fileID: 2800000, guid: cabc40f1443af6e49b3c126da1e01d9e, type: 3}
+    - {fileID: 2800000, guid: f00c73eda770a49418209768fc5da32c, type: 3}
+    - {fileID: 2800000, guid: 543bdfdb4df7e0f4bb9b2addd9d053ba, type: 3}
+    - {fileID: 2800000, guid: b9c1122a9de42bd41ae38d3a97f3336b, type: 3}
+    - {fileID: 2800000, guid: 7d3077cd08278d3478ff946dc53efb33, type: 3}
+    - {fileID: 2800000, guid: 5b937a8a86561384bba1e94887635ba9, type: 3}
+    - {fileID: 2800000, guid: 3b1a1d6c9c318d847b6b39b83e3ced5c, type: 3}
+    - {fileID: 2800000, guid: e4d8fe9dd3bd63d439b46e3ce5e0e8c2, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - cabc40f1443af6e49b3c126da1e01d9e: 21300000
+    - d119932436df5354d8086abf350ab043: 21300000
+    - 14807687f22f8e5469d9630621524583: 21300000
+    - b9c1122a9de42bd41ae38d3a97f3336b: 21300000
+    - 5b937a8a86561384bba1e94887635ba9: 21300000
+    - eda3b69b896a5554fb38c3a64097cb27: 21300000
+    - 543bdfdb4df7e0f4bb9b2addd9d053ba: 21300000
+    - 3b1a1d6c9c318d847b6b39b83e3ced5c: 21300000
+    - e4d8fe9dd3bd63d439b46e3ce5e0e8c2: 21300000
+    - 7d3077cd08278d3478ff946dc53efb33: 21300000
+    - be10d6dda782c7748a6e7fac9f3133c6: 21300000
+    - f00c73eda770a49418209768fc5da32c: 21300000
+    - c00d354eaa20a544b8a56b28463b6149: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: cabc40f1443af6e49b3c126da1e01d9e, type: 3}
+  - {fileID: 21300000, guid: d119932436df5354d8086abf350ab043, type: 3}
+  - {fileID: 21300000, guid: 14807687f22f8e5469d9630621524583, type: 3}
+  - {fileID: 21300000, guid: b9c1122a9de42bd41ae38d3a97f3336b, type: 3}
+  - {fileID: 21300000, guid: 5b937a8a86561384bba1e94887635ba9, type: 3}
+  - {fileID: 21300000, guid: eda3b69b896a5554fb38c3a64097cb27, type: 3}
+  - {fileID: 21300000, guid: 543bdfdb4df7e0f4bb9b2addd9d053ba, type: 3}
+  - {fileID: 21300000, guid: 3b1a1d6c9c318d847b6b39b83e3ced5c, type: 3}
+  - {fileID: 21300000, guid: e4d8fe9dd3bd63d439b46e3ce5e0e8c2, type: 3}
+  - {fileID: 21300000, guid: 7d3077cd08278d3478ff946dc53efb33, type: 3}
+  - {fileID: 21300000, guid: be10d6dda782c7748a6e7fac9f3133c6, type: 3}
+  - {fileID: 21300000, guid: f00c73eda770a49418209768fc5da32c, type: 3}
+  - {fileID: 21300000, guid: c00d354eaa20a544b8a56b28463b6149, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Level6_Slide1
+  - EnterLevel_Slide3
+  - DraculaFight_Slide2
+  - Level2_Slide1
+  - Level4_Slide1
+  - DraculaFight_Slide1
+  - Level1_Slide2
+  - Level5_Slide1
+  - photo_5303346899396455350_y
+  - Level3_Slide1
+  - EnterLevel_Slide2
+  - Level1_Slide1
+  - EnterLevel_Slide1
+  m_RenderDataMap: {}
+  m_Tag: StoryAtlas
+  m_IsVariant: 0

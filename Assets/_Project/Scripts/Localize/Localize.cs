@@ -2,6 +2,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
 public class Localize : MonoBehaviour
 {
     public virtual string GetLocalizeText(string json, string list, string key, Language language)
@@ -23,6 +24,16 @@ public class Localize : MonoBehaviour
 
 
         return result;
+    }
+
+    public string GetLocalizationFile(string folder, string list)
+    {
+        return LocalizationManager.instance.folders.First(fold => fold.name == folder).textList.First(text => text.name == list).text;
+    }
+
+    public Language GetCurrentLanguage()
+    {
+        return LocalizationManager.instance.languages[LocalizationManager.instance.langIndex].language;
     }
 
     public virtual TMP_FontAsset GetFontAsset(int idFont)

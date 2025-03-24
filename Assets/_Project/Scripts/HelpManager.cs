@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HelpManager : MonoBehaviour
+public class HelpManager : Localize
 {
     [SerializeField] private GameObject tutorialWindow;
 
@@ -21,6 +21,8 @@ public class HelpManager : MonoBehaviour
     public Image objectImageTutorial;
 
     public List<HelpStruct> helpList;
+    public string folder;
+    public string list;
 
     bool isOpacity;
     bool isOpacityNot;
@@ -62,6 +64,11 @@ public class HelpManager : MonoBehaviour
         }
 
         tutorialWindow.SetActive(false);
+
+        foreach(HelpStruct helpStruct in helpList)
+        {
+            helpStruct.text = GetLocalizeText(GetLocalizationFile(folder, list), list, helpStruct.key, GetCurrentLanguage());
+        }
     }
 
     private void Update()
@@ -161,8 +168,9 @@ public class HelpManager : MonoBehaviour
 }
 
 [Serializable]
-public struct HelpStruct
+public class HelpStruct
 {
     public string text;
     public Sprite image;
+    public string key;
 }
