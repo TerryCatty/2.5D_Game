@@ -6,9 +6,9 @@
   "English": "There's a statue missing.",
   "German": "Es fehlt eine Statue",
   "Ukrainian": "Якоїсь статуї не вистачає",
-  "Japan": "像がない",
+  "Japanese": "像がない",
   "Turkish": "Kayıp bir heykel var.",
-  "Chinese": "有一尊雕像不見了"
+  "Chineese": "有一尊雕像不見了"
  },
  {
   "Key": "Hint2",
@@ -16,9 +16,9 @@
   "English": "Move the barrel",
   "German": "Bewegen Sie den Lauf",
   "Ukrainian": "Посунь бочку",
-  "Japan": "バレルを動かす",
+  "Japanese": "バレルを動かす",
   "Turkish": "Namluyu hareket ettirin",
-  "Chinese": "移動槍管"
+  "Chineese": "移動槍管"
  },
  {
   "Key": "Hint3",
@@ -26,9 +26,9 @@
   "English": "Set the correct time.",
   "German": "Den richtigen Zeitpunkt festlegen",
   "Ukrainian": "Встановіть правильний час",
-  "Japan": "適切な時間を設定する",
+  "Japanese": "適切な時間を設定する",
   "Turkish": "Doğru zamanı ayarlayın",
-  "Chinese": "設定正確的時間"
+  "Chineese": "設定正確的時間"
  }
 ]
 }

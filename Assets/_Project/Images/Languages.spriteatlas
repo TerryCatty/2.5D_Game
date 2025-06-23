@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 4
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 256
+      m_MaxTextureSize: 128
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1

@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 4398105651015586040}
   - component: {fileID: 1940420871617045554}
   - component: {fileID: 138836365270009316}
+  - component: {fileID: 1945857979555456146}
   m_Layer: 0
   m_Name: PP_Meadow_08
   m_TagString: Untagged
@@ -207,11 +208,32 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 672551834481701363, guid: 08eefc2f613faa34fbb717ac2142af0a, type: 3}
+--- !u!65 &1945857979555456146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138836365270009319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.604929, y: 2.430416, z: 23.484095}
+  m_Center: {x: -0.35178274, y: 1.215208, z: 0.1827125}
 --- !u!1 &223715356780390431
 GameObject:
   m_ObjectHideFlags: 0

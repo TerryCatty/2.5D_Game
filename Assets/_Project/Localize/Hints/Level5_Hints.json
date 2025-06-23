@@ -1,0 +1,34 @@
+{
+"Level5_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "Кристаллы у статуй обозначают последовательность цветов",
+  "English": "The crystals on the statues represent a sequence of colors.",
+  "German": "Die Kristalle an den Statuen zeigen die Reihenfolge der Farben an",
+  "Ukrainian": "Кристали у статуй позначають послідовність кольорів",
+  "Japanese": "彫像のクリスタルは色の順序を示している。",
+  "Turkish": "Heykellerdeki kristaller renklerin sırasını gösterir",
+  "Chineese": "雕像上的水晶表示顏色的順序"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Введи код с помощью мишеней",
+  "English": "Enter the code using the targets",
+  "German": "Geben Sie den Code über die Ziele ein",
+  "Ukrainian": "Введи код за допомогою мішеней",
+  "Japanese": "ターゲットを使ってコードを入力する",
+  "Turkish": "Hedefleri kullanarak kodu girin",
+  "Chineese": "使用目標輸入代碼"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Стреляй в мишени",
+  "English": "Shoot at the targets",
+  "German": "Schießen Sie auf die Ziele",
+  "Ukrainian": "Стріляй у мішені",
+  "Japanese": "ターゲットを撃つ",
+  "Turkish": "Hedefleri vurun",
+  "Chineese": "射擊目標"
+ }
+]
+}

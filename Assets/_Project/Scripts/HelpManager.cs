@@ -47,7 +47,7 @@ public class HelpManager : Localize
         textOpacity = new List<float>();
 
 
-        textCount.text = "";
+        textCount.text = count.ToString();
 
         imagesList = tutorialWindow.GetComponentsInChildren<Image>().ToList();
         textList = tutorialWindow.GetComponentsInChildren<TextMeshProUGUI>().ToList();
@@ -135,7 +135,10 @@ public class HelpManager : Localize
         }
 
         count--;
-        textCount.text = "";//count.ToString();
+        textCount.text = count.ToString();
+
+        objectTextTutorial.font = GetFontAsset(0);
+
         objectTextTutorial.text = helpList[count].text;
         objectImageTutorial.sprite = helpList[count].image;
 
@@ -158,7 +161,7 @@ public class HelpManager : Localize
         isOpacity = false;
         isOpacityNot = true;
 
-        Invoke(nameof(OffWindow), 2);
+        Invoke(nameof(OffWindow), 0.1f);
     }
 
     public void OffWindow()

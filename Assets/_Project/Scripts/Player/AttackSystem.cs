@@ -12,6 +12,9 @@ public class AttackSystem : MonoBehaviour
     public float timerShoot;
     private float timer;
 
+
+    public Button attackButton;
+
     private Movement movement;
 
     private void Start()
@@ -19,18 +22,28 @@ public class AttackSystem : MonoBehaviour
         movement = GetComponent<Movement>();
 
 
+        try
+        {
+            attackButton = GameObject.Find("AttackButton").GetComponent<Button>();
+            attackButton.onClick.AddListener(SpawnBullet);
+        }
+        catch
+        {
+
+        }
     }
 
     private void Update()
     {
+        attackButton?.gameObject.SetActive(isActive && movement.isAndroid);
         if (isActive == false || isActive2 == false) return;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && movement.isAndroid == false)
         {
             SpawnBullet();
         }
 
-        if(timer > 0)
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
@@ -41,6 +54,7 @@ public class AttackSystem : MonoBehaviour
         if (timer > 0) return;
         else timer = timerShoot;
 
+        Debug.Log("Player shot");
 
         GameObject bullet = Instantiate(bulletPrefab, shootStartObj.transform.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Init(Quaternion.Euler(GetComponent<Movement>().rotatePlayer.rotation.eulerAngles) * Vector3.forward);

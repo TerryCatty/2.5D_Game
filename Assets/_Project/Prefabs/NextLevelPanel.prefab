@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 2670673129710866210}
   - component: {fileID: 6676595625111239256}
   - component: {fileID: 7747019265200542580}
+  - component: {fileID: 4627971911432218010}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -361,6 +362,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4627971911432218010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613567379021820969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a288f58dfe89c4443b85470c765c6ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idFont: 0
+  key: Continue
+  list: Menu
+  folder: Menu
 --- !u!1 &8508685805744743496
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +389,7 @@ GameObject:
   - component: {fileID: 3471079129081596945}
   - component: {fileID: 2129789827026378701}
   - component: {fileID: 2909505965182167963}
+  - component: {fileID: 4995946026339805664}
   m_Layer: 5
   m_Name: Congrats
   m_TagString: Untagged
@@ -497,3 +515,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4995946026339805664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508685805744743496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a288f58dfe89c4443b85470c765c6ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idFont: 0
+  key: LevelComplete
+  list: Menu
+  folder: Menu

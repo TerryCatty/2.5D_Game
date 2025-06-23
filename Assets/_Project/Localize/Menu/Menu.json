@@ -2,13 +2,13 @@
 "Menu":[
  {
   "Key": "Play",
-  "Russian": "Играть",
-  "English": "Play",
-  "German": "Spielen",
-  "Ukrainian": "Грати",
-  "Japan": "プレー",
-  "Turkish": "Oyun",
-  "Chinese": "遊戲"
+  "Russian": "Выбор уровня",
+  "English": "Levels",
+  "German": "Sicherheitsstufen",
+  "Ukrainian": "Рівень",
+  "Japanese": "レベル",
+  "Turkish": "Seviyeler",
+  "Chineese": "水平"
  },
  {
   "Key": "NewGame",
@@ -16,9 +16,9 @@
   "English": "New Game",
   "German": "Neues Spiel",
   "Ukrainian": "Нова гра",
-  "Japan": "ニューゲーム",
+  "Japanese": "ニューゲーム",
   "Turkish": "Yeni oyun",
-  "Chinese": "新遊戲"
+  "Chineese": "新遊戲"
  },
  {
   "Key": "Menu",
@@ -26,9 +26,58 @@
   "English": "Menu",
   "German": "Menü",
   "Ukrainian": "Меню",
-  "Japan": "メニュー",
+  "Japanese": "メニュー",
   "Turkish": "Menü",
-  "Chinese": "選單"
- }
+  "Chineese": "選單"
+ },
+ {
+  "Key": "Back",
+  "Russian": "Назад",
+  "English": "Back",
+  "German": "Zurück",
+  "Ukrainian": "Назад",
+  "Japanese": "戻る",
+  "Turkish": "Geri",
+  "Chineese": "返回"
+ },
+  {
+  "Key": "Continue",
+  "Russian": "Продолжить",
+  "English": "Continue",
+  "German": "Fortsetzen",
+  "Ukrainian": "Продовжити",
+  "Japanese": "つづく",
+  "Turkish": "Devam edecek",
+  "Chineese": "待续"
+ }, 
+ {
+  "Key": "LevelComplete",
+  "Russian": "Вы прошли уровень",
+  "English": "You've passed the level",
+  "German": "Sie haben die Stufe bestanden",
+  "Ukrainian": "Ви пройшли рiвень",
+  "Japanese": "レベルに合格",
+  "Turkish": "Seviyeyi geçtiniz",
+  "Chineese": "您已通过该级别"
+ } ,
+ {
+  "Key": "StudioName",
+  "Russian": "Студия технологий rv",
+  "English": "RV Technology Studio",
+  "German": "RV Technology Studio",
+  "Ukrainian": "Студiя технологiй rv",
+  "Japanese": "RVテクノロジー・スタジオ",
+  "Turkish": "rv teknoloji̇ stüdyosu",
+  "Chineese": "房车技术工作室"
+ },{
+  "Key": "NameGame",
+  "Russian": "Кровавый след",
+  "English": "Trail of Blood",
+  "German": "Blutiger Pfad",
+  "Ukrainian": "Кривавий слiд",
+  "Japanese": "血の軌跡",
+  "Turkish": "Kanlı iz",
+  "Chineese": "血腥踪迹"
+ },
 ]
 }

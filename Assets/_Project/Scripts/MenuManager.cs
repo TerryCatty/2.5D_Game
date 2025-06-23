@@ -175,4 +175,13 @@ public class MenuManager : MonoBehaviour
     {
 
     }
+
+    public void Continue()
+    {
+        nextLevel = GameManager.instance.data.levels + 1;
+
+        if(nextLevel > 8) nextLevel = 8;
+
+        StartCoroutine(NextLevel());
+    }
 }

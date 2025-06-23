@@ -48,7 +48,7 @@ public class TutorialTrigger : Localize
             imagesOpacity.Add(image.color.a);
             //image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
         }
-
+        
 
         foreach (TextMeshProUGUI text in textList)
         {
@@ -60,6 +60,8 @@ public class TutorialTrigger : Localize
         string keyJson = GameManager.instance.isAndroid ? mobileKey : desktopKey;
         keyJson += key;
         textTutorial = GetLocalizeText(json, list, keyJson, LocalizationManager.instance.languages[LocalizationManager.instance.langIndex].language);
+        objectTextTutorial.font = GetFontAsset(0);
+
 
         tutorialWindow.SetActive(false);
     }

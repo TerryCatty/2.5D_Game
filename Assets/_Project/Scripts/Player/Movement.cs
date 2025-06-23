@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static PushController;
 
 [RequireComponent(typeof(CharacterController))]
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IPointerDownHandler
 {
     public Animator anim;
 
@@ -23,7 +24,7 @@ public class Movement : MonoBehaviour
 
     private CharacterController characterController;
 
-   public Vector3 playerValues = new Vector3();
+    public Vector3 playerValues = new Vector3();
     private Rigidbody rb;
     public float moveHorizontal, moveVertical;
     public float moveHorizontalPlayer, moveVerticalPlayer;
@@ -39,6 +40,8 @@ public class Movement : MonoBehaviour
     public bool isRotatingByMovement = true;
     public bool isRotatingCursor = false;
 
+    public Transform target;
+
     [Header("Jump")]
     [SerializeField] private float jumpForce;
 
@@ -46,6 +49,7 @@ public class Movement : MonoBehaviour
     public bool isJumping;
     public bool jumpStart;
 
+    private Button jump;
     public Action isJump;
 
     [Header("Gravity")]
@@ -67,11 +71,52 @@ public class Movement : MonoBehaviour
 
     public bool isActive = true;
 
+    private Joystick joystick;
+
+    public bool isAndroid;
+
+    PointerEventData pointerEventData;
+
     void Start()
     {
+        Button AttackButton = GameObject.Find("AttackButton").GetComponent<Button>();
+
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        joystick = FindAnyObjectByType<Joystick>();
+        jump = GameObject.Find("JumpButton").GetComponent<Button>();
+
+        if(jumpForce == 0)
+            jump.gameObject.SetActive(false);
+
+
+        if(jump.TryGetComponent(out ButtonInput input))
+        {
+            input.onDown.AddListener(SetJumpStart);
+        }
+        try
+        {
+            isAndroid = GameManager.instance.isAndroid;
+        }
+        catch
+        {
+            //isAndroid = false;
+        }
+
+        if (isAndroid == false)
+        {
+            joystick.gameObject.SetActive(false);
+            jump.gameObject.SetActive(false);
+            AttackButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (GetComponent<AttackSystem>() == null)
+            {
+                AttackButton.gameObject.SetActive(false);
+            }
+        }
     }
 
     void Update()
@@ -100,10 +145,10 @@ public class Movement : MonoBehaviour
         }
 
 
-        moveHorizontal =  Input.GetAxis("Horizontal");
+        moveHorizontal = isAndroid ? joystick.Horizontal : Input.GetAxis("Horizontal");
         moveHorizontalPlayer = moveHorizontal * Speed / weight;
 
-        moveVertical =  Input.GetAxis("Vertical");
+        moveVertical = isAndroid ? joystick.Vertical : Input.GetAxis("Vertical");
         moveVerticalPlayer = moveVertical * Speed / weight;
 
         moveValues.x = moveHorizontalPlayer * moveValuesOffset.x;
@@ -119,24 +164,38 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (isRotatingByMovement)
+        if (isAndroid)
         {
-            directionRotate = moveValues;
+            isRotatingByMovement = true;
+            isRotatingCursor = false;
         }
 
-        else if (isRotatingCursor)
+        if (target == null)
         {
-            RotateByCursor();
+
+            if (isRotatingByMovement)
+            {
+                directionRotate = moveValues;
+            }
+
+            else if (isRotatingCursor)
+            {
+                RotateByCursor();
+            }
+        }
+        else
+        {
+            RotateToTarget();
         }
 
         if (isSelfMoving == true)
         {
 
             //if (characterController.isGrounded)
-                playerValues = moveValues;
+            playerValues = moveValues;
 
 
-            if(UseGravity) playerValues.y = gravityForce * moveValuesOffset.y;
+            if (UseGravity) playerValues.y = gravityForce * moveValuesOffset.y;
 
         }
 
@@ -164,7 +223,7 @@ public class Movement : MonoBehaviour
 
         rotatePlayer.transform.rotation = Quaternion.Lerp(rotatePlayer.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
-    private  void RotateByCursor()
+    private void RotateByCursor()
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10f;
@@ -172,7 +231,12 @@ public class Movement : MonoBehaviour
         directionRotate = worldMousePos - transform.position;
         directionRotate.y = 0;
 
-        RotateLogic(directionRotate);
+    }
+
+    private void RotateToTarget()
+    {
+        directionRotate = target.position - transform.position;
+        directionRotate.y = 0;
     }
 
     private void GravityLogic()
@@ -191,12 +255,12 @@ public class Movement : MonoBehaviour
 
     private void JumpLogic()
     {
-        if(isSelfMoving)
+        if (isSelfMoving)
             canJump = isGround;
 
         isJumping = !canJump;
 
-        if(isGround)
+        if (isGround)
             anim.SetBool("IsJump", false);
 
         if (Input.GetAxis("Jump") > 0 || jumpStart)
@@ -207,6 +271,7 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
+        if (jumpForce == 0) return;
         if (!canJump) return;
 
         isJump?.Invoke();
@@ -255,4 +320,8 @@ public class Movement : MonoBehaviour
         cam.GetComponent<CameraFollow>().CameraParams = parametres;
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        throw new NotImplementedException();
+    }
 }

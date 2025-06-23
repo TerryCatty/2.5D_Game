@@ -6,7 +6,7 @@
   "English": "You can use the jump button to overcome obstacles.",
   "German": "Benutze die Sprungtaste, um über Hindernisse zu springen.",
   "Ukrainian": "За допомогою кнопки стрибка ви можете долати перешкоди",
-  "японский": "ジャンプボタンで障害物を飛び越える",
+  "Japan": "ジャンプボタンで障害物を飛び越える",
   "Turkish": "Engellerin üzerinden atlamak için zıplama düğmesini kullanın",
   "Chinese": "使用跳躍鍵跳過障礙物"
  },
@@ -22,13 +22,13 @@
  },
  {
   "Key": "Mobile.Cling",
-  "Russian": "Если какое-то препятствие достаточно высокое, то вы можете взобраться на него, если сможете дотянуться до него",
-  "English": "If some obstacle is high enough, then you can climb it if you can reach it.",
-  "German": "Wenn ein Hindernis hoch genug ist, kannst du es überklettern, wenn du es erreichen kannst.",
-  "Ukrainian": "Якщо якась перешкода досить висока, то ви можете піднятися на неї, якщо зможете дотягнутися до неї",
-  "Japan": "障害物の高さが十分であれば、手が届けば登ることができる",
-  "Turkish": "Eğer bir engel yeterince yüksekse, ona ulaşabilirseniz tırmanabilirsiniz",
-  "Chinese": "如果某些障礙物夠高，只要您能到達，就可以爬上去"
+  "Russian": "С некоторыми объектами вы можете взаимодействовать, нажав на кнопку действия (клавиша Е) рядом с ними.",
+  "English": "You can interact with some objects by clicking on the actions button (E key) next to them.",
+  "German": "Sie können mit einigen Objekten interagieren, indem Sie die Aktionstaste (E-Taste) neben dem Objekt drücken.",
+  "Ukrainian": "З деякими об'єктами ви можете взаємодіяти, натиснувши на кнопку дії (клавіша Е) поруч із ними.",
+  "Japan": "オブジェクトの横にあるアクションボタン（Eキー）を押すことで、そのオブジェクトと対話することができます。",
+  "Turkish": "Bazı nesnelerin yanındaki eylem düğmesine (E tuşu) basarak onlarla etkileşime geçebilirsiniz.",
+  "Chinese": "您可以按下某些物件旁邊的動作按鈕 (E 鍵) 來與這些物件互動。"
  },
  {
   "Key": "Mobile.Shoot",
@@ -62,13 +62,13 @@
  },
  {
   "Key": "Desktop.Cling",
-  "Russian": "Если какое-то препятствие достаточно высокое, то вы можете взобраться на него, если сможете дотянуться до него",
-  "English": "If some obstacle is high enough, then you can climb it if you can reach it.",
-  "German": "Wenn ein Hindernis hoch genug ist, kannst du es überklettern, wenn du es erreichen kannst.",
+  "Russian": "Если какое-то препятствие достаточно высокое, то вы можете взобраться на него, если сможете дотянуться до него. Например, подставив коробку.",
+  "English": "If some obstacle is high enough, then you can climb it if you can reach it.For example, by substituting a box.",
+  "German": "Wenn ein Hindernis hoch genug ist, kannst du es überklettern, wenn du es erreichen kannst.Zum Beispiel, indem Sie eine Schachtel einlegen.",
   "Ukrainian": "Якщо якась перешкода досить висока, то ви можете піднятися на неї, якщо зможете дотягнутися до неї",
-  "Japan": "障害物の高さが十分であれば、手が届けば登ることができる",
-  "Turkish": "Eğer bir engel yeterince yüksekse, ona ulaşabilirseniz tırmanabilirsiniz",
-  "Chinese": "如果某些障礙物夠高，只要您能到達，就可以爬上去"
+  "Japan": "障害物の高さが十分であれば、手が届けば登ることができる。 たとえば、ボックスを代入します。",
+  "Turkish": "Eğer bir engel yeterince yüksekse, ona ulaşabilirseniz tırmanabilirsiniz. Örneğin, kutuyu değiştirerek.",
+  "Chinese": "如果某些障礙物夠高，只要您能到達，就可以爬上去. 例如，通过替换一个盒子。"
  },
  {
   "Key": "Desktop.Shoot",
@@ -79,6 +79,26 @@
   "Japan": "マウスの左ボタンで魔法を撃つことができる。",
   "Turkish": "Sihir vurmak için farenin sol tuşunu kullanabilirsiniz.",
   "Chinese": "您可以使用滑鼠左鍵射出魔法。"
- }
+ },
+ {
+  "Key": "Desktop.Move",
+  "Russian": "С помощью клавиш WASD вы можете ходить",
+  "English": "Using the WASD keys, you can walk",
+  "German": "Mit den WASD-Tasten können Sie gehen",
+  "Ukrainian": "За допомогою лівої кнопки миші ви можете стріляти магією.",
+  "Japan": "WASDキーを使用して、歩くことができます",
+  "Turkish": "WASD tuşlarını kullanarak yürüyebilirsiniz",
+  "Chinese": "使用WASD键，你可以走路"
+ },
+ {
+  "Key": "Mobile.Move",
+  "Russian": "С помощью клавиш джойстика вы можете ходить",
+  "English": "You can walk using the joystick keys.",
+  "German": "Sie können mit den Joystick-Tasten gehen.",
+  "Ukrainian": "За допомогою лівої кнопки миші ви можете стріляти магією.",
+  "Japan": "ジョイスティックキーを使って歩くことができます。",
+  "Turkish": "Joystick tuşlarını kullanarak yürüyebilirsiniz.",
+  "Chinese": "您可以使用操纵杆键行走。"
+ },
 ]
 }

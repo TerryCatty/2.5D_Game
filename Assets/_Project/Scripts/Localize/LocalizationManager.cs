@@ -15,6 +15,8 @@ public class LocalizationManager : MonoBehaviour
 
     public List<LocalizeFolders> folders;
 
+    public List<LocalizeFolders> getFolders => folders;
+
     public Action changeLang;
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class LocalizationManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            GP_Init.OnReady += LoadData;
         }
 
         else
@@ -31,27 +35,33 @@ public class LocalizationManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        LoadData();
-    }
 
-    public void ChangeLanguage(int language)
+    public void ChangeLanguage(int language, bool changeInPlugin = true)
     {
+        if (language >= languages.Count) language = 0;
+
         langIndex = language;
         changeLang?.Invoke();
-        GP_Language.Change((GamePush.Language)languages[langIndex].language);
+
+        if (changeInPlugin)
+        {
+            GP_Language.Change(languages[langIndex].language);
+            Debug.Log((languages[langIndex].language).ToString());
+            Debug.Log(GP_Language.Current().ToString());
+        }
     }
 
 
 
     public void LoadData()
     {
-       
-        string currentLanguage =
+        string currentLanguage = "";
+
+        currentLanguage =
         GP_Language.Current().ToString();
 
         Debug.Log(currentLanguage);
+
 
         foreach (LanguageStruct language in languages)
         {
@@ -61,7 +71,7 @@ public class LocalizationManager : MonoBehaviour
                 break;
             }
         }
-       ChangeLanguage(langIndex);
+       ChangeLanguage(langIndex, false);
     }
 }
 
@@ -72,9 +82,8 @@ public struct LocalizeFolders
 {
     public string name;
     public List<TextAsset> textList;
-
 }
-
+/*
 [Serializable]
 public enum Language
 {
@@ -82,10 +91,10 @@ public enum Language
     English,
     German,
     Ukrainian,
-    Japan,
+    Japanese,
     Turkish,
-    Chinese
-}
+    Chineese
+}*/
 
 [Serializable]
 public struct LanguageStruct

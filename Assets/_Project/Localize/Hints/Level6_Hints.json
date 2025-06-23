@@ -1,0 +1,34 @@
+{
+"Level6_Hints":[
+ {
+  "Key": "Hint1",
+  "Russian": "6 костей, 6 черепов, 6 мышей",
+  "English": "6 bones, 6 skulls, 6 mice",
+  "German": "6 Knochen, 6 Schädel, 6 Mäuse.",
+  "Ukrainian": "6 кісток, 6 черепів, 6 мишей",
+  "Japanese": "6つの骨、6つの頭蓋骨、6匹のネズミ。",
+  "Turkish": "6 kemik, 6 kafatası, 6 fare.",
+  "Chineee": "6 根骨頭、6 個頭顱、6 隻老鼠。"
+ },
+ {
+  "Key": "Hint2",
+  "Russian": "Обрати внимание на черепа, кости и летучих мышей",
+  "English": "Pay attention to the skulls, bones and bats.",
+  "German": "Beachten Sie die Totenköpfe, Knochen und Fledermäuse",
+  "Ukrainian": "Зверни увагу на черепи, кістки та кажанів",
+  "Japanese": "頭蓋骨、骨、コウモリに注目",
+  "Turkish": "Kafataslarına, kemiklere ve yarasalara dikkat edin",
+  "Chineese": "注意頭骨、骨頭和蝙蝠"
+ },
+ {
+  "Key": "Hint3",
+  "Russian": "Обрати внимание на количество предметов",
+  "English": "Pay attention to the number of items",
+  "German": "Beachten Sie die Anzahl der Artikel",
+  "Ukrainian": "Зверни увагу на кількість предметів",
+  "Japanese": "アイテム数に注意",
+  "Turkish": "Ürün sayısını not edin",
+  "Chineese": "注意項目數量"
+ }
+]
+}

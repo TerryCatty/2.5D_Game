@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GamePush;
 
 
 
@@ -12,7 +13,7 @@ public class LocalizationMenu : MonoBehaviour
 
     public int lang => LocalizationManager.instance.langIndex;
 
-    int countLanguages = Enum.GetNames(typeof(Language)).Length;
+    int countLanguages => LocalizationManager.languages.Count;
     
     public List<Sprite> imagesLanguage = new List<Sprite>();
     public Image image;
@@ -50,7 +51,7 @@ public class LocalizationMenu : MonoBehaviour
     {
         Debug.Log(image.gameObject.name);
         Debug.Log(image.sprite);
-        image.sprite = imagesLanguage[id];
+        image.sprite = LocalizationManager.instance.languages[id].imageLanguage;
     }
 
     private void OnDisable()

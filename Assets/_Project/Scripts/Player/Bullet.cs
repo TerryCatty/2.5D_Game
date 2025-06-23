@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public float speed;
+    public string tag;
 
     private Vector3 direction;
 
@@ -25,8 +26,10 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<Bullet>() == null)
         {
+
             if (collision.gameObject.TryGetComponent(out Health health))
             {
+                if (collision.gameObject.tag != tag) return;
                 health.GetDamage(damage);
             }
             Destroy(gameObject);

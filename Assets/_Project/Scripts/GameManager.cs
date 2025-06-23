@@ -3,7 +3,6 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
 using GamePush;
-using Examples.Storage;
 
 
 [Serializable]
@@ -30,17 +29,9 @@ public class GameManager : MonoBehaviour
 
     int level;
 
-    public bool isAndroid = false;
+    public bool isAndroid;
 
 
-
-    [DllImport("__Internal")]
-
-    private static extern void SaveExternGamePush(string value);
-
-    [DllImport("__Internal")]
-
-    private static extern void LoadExternGamePush();
     public bool canGameAPI;
 
 
@@ -49,6 +40,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+
             DontDestroyOnLoad(gameObject);
 
         }
@@ -69,17 +61,18 @@ public class GameManager : MonoBehaviour
     {
         m_GameReadyApi.OnLoadingAPIReady();
         canGameAPI = true;
+        isAndroid = GP_Device.IsMobile();
         CheckUserAuth();
         SetGameAPI();
     }
 
     public void CheckUserAuth()
     {
-        if (GP_Platform.HasIntegratedAuth() == false)
+        /*if (GP_Platform.HasIntegratedAuth() == false)
         {
             Debug.Log("Not integrate");
             return;
-        }
+        }*/
 
         SendMsgAuth(GP_Player.IsLoggedIn());
     }
@@ -96,22 +89,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("isAuth " + isAuth);
 
         //LoadData(GP_Player.GetString("gamedatajson"));
-
-
+        Debug.Log("LoadGP");
+        LoadData(GP_Player.GetString("gamedatajson"));
+        /*isAuth = true;
         if (isAuth)
         {
-            try
-            {
-                LoadData(GP_Player.GetString("gamedatajson"));
-            }
-            catch
-            {
-               /* if (PlayerPrefs.HasKey("GameData"))
-                {
-                    LoadData(PlayerPrefs.GetString("GameData"));
-                }
-                Debug.Log("LoadPlayerPrefs1");*/
-            }
+            Debug.Log("LoadGP");
+            LoadData(GP_Player.GetString("gamedatajson"));
         }
         else
         {
@@ -121,7 +105,7 @@ public class GameManager : MonoBehaviour
                 LoadData(PlayerPrefs.GetString("GameData"));
             }
             Debug.Log("LoadPlayerPrefs");
-        }
+        }*/
 
         m_GameReadyApi.OnGameplayAPIStart();
     }
@@ -136,12 +120,20 @@ public class GameManager : MonoBehaviour
         isFocus = focus;
         FindAnyObjectByType<VolumeManager>().SetVolume(isFocus && !isPause);
 
+
+        SetPause(!focus);
+
+
         SetGameAPI();
     }
 
     public void SetPause(bool pause)
     {
         isPause = pause;
+
+        if(isPause) GP_Game.Pause();
+        else GP_Game.Resume();
+
         FindAnyObjectByType<VolumeManager>().SetVolume(isFocus && !isPause);
 
         SetGameAPI();
@@ -213,7 +205,6 @@ public class GameManager : MonoBehaviour
         FindAnyObjectByType<MenuManager>().Pause(1);
         m_GameReadyApi.OnGameplayAPIStop();
         GP_Ads.ShowFullscreen(OnFullscreenStart, AdvIsShowNextLevel);
-        //ShowAdvExternLoadLevel();
     }
     public void AdvIsShowNextLevel(bool success)
     {
@@ -221,6 +212,12 @@ public class GameManager : MonoBehaviour
         m_GameReadyApi.OnGameplayAPIStart();
         SceneManager.LoadScene(level);
         SetGameAPI();
+    }
+
+    public void OnFullscreenStart()
+    {
+
+
     }
 
     private void Update()
@@ -235,31 +232,25 @@ public class GameManager : MonoBehaviour
     {
         string json = JsonUtility.ToJson(data);
 
-       /* GP_Player.Set("gamedatajson", json);
-        GP_Player.Sync(SyncStorageType.preffered);*/
+        /* GP_Player.Set("gamedatajson", json);
+         GP_Player.Sync(SyncStorageType.preffered);*/
 
+        GP_Player.Set("gamedatajson", json);
+        GP_Player.Sync(SyncStorageType.preffered);
+        Debug.Log("Save GP" + json);
 
-        if (isAuth)
+       /* if (isAuth)
         {
-
-            Debug.Log("Save");
-
-            try
-            {
-                GP_Player.Set("gamedatajson", json);
-                GP_Player.Sync(SyncStorageType.preffered);
-            }
-            catch
-            {
-                Debug.Log("error in save");
-            }
+            GP_Player.Set("gamedatajson", json);
+            GP_Player.Sync(SyncStorageType.preffered);
+            Debug.Log("Save GP" + json);
         }
         else
         {
             PlayerPrefs.SetString("GameData", json);
             PlayerPrefs.Save();
             Debug.Log("SavePlayerPrefs" + json);
-        }
+        }*/
 
        /* PlayerPrefs.SetString("GameData", json);
         PlayerPrefs.Save();
@@ -300,11 +291,6 @@ public class GameManager : MonoBehaviour
         hintManager.OpenConfirm();
     }
 
-    public void OnFullscreenStart()
-    {
-
-
-    }
     public void OnRewarded(string id)
     {
         if (id == "Hint")
